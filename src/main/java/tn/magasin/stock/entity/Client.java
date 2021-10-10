@@ -28,6 +28,9 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idclient")
 	private Long idClient;
+	
+	
+	
 	@Column(name = "nom")
 	private String nom;
 	@Column(name = "prenom")

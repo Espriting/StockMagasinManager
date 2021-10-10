@@ -1,5 +1,6 @@
-package tn.magasin.entity;
+package tn.magasin.stock.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,7 +14,11 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="Facture")
-public class Facture {
+public class Facture implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idFacture")

@@ -1,4 +1,4 @@
-package tn.magasin.entity;
+package tn.magasin.stock.entity;
 
 
 import java.io.Serializable;

@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
 
+
 @Entity
 @Table(name="Client")
 public class Client implements Serializable {

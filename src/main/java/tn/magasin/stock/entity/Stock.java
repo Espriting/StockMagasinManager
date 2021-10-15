@@ -1,12 +1,16 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +30,8 @@ public class Stock implements Serializable{
 	private int qteMin;
 	@Column(name = "libelleStock")
 	private String libelleStock;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "stock")
+	private Set<Produit> produits;
 	public Stock(Long idStock, int qte, int qteMin, String libelleStock) {
 		super();
 		this.idStock = idStock;

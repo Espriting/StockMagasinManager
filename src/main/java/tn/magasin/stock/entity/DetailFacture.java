@@ -20,7 +20,7 @@ public class DetailFacture implements Serializable {
 	 * 
 	 */
 	@ManyToOne
-	private Facture facture;
+	private Facture factures;
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "detailFacture")
 	private Set<Produit> produits;
 	

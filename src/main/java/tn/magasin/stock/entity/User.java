@@ -24,18 +24,15 @@ import tn.magasin.stock.enumeration.Profession;
 @Entity
 @Table(name="User")
 public class User implements Serializable {
-	@ManyToMany( cascade = CascadeType.ALL)
-	private Set<FeedBack> feedBack;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
-	private Set<Facture> factures;
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idclient")
-	private Long idClient;
+	@Column(name = "id")
+	private Long id;
 	
 	
 	
@@ -51,10 +48,10 @@ public class User implements Serializable {
 	@Column(name = "password")
 	private String password;
 	
-	public User(Long idClient, String nom, String prenom, Date dateNaissance, String email, String password,
+	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password,
 			CategorieClient categorieClient, Profession profession) {
 		super();
-		this.idClient = idClient;
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
@@ -62,12 +59,20 @@ public class User implements Serializable {
 		this.password = password;
 	
 	}
-	public Long getIdClient() {
-		return idClient;
+
+
+	public Long getId() {
+		return id;
 	}
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public String getNom() {
 		return nom;
 	}

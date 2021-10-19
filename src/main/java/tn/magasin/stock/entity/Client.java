@@ -3,12 +3,15 @@ package tn.magasin.stock.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
 
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
-
+@Entity
+@Table(name="Client")
 public class Client extends User {
 	@Column(name = "categorieclient")
 	@Enumerated(EnumType.STRING)

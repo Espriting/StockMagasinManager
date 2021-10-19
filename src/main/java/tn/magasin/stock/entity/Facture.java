@@ -23,9 +23,9 @@ public class Facture implements Serializable {
 	/**
 	 * 
 	 */
-	@ManyToMany( cascade = CascadeType.ALL)
-	private Set<Livraison> livraisons;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "facture")
+	@OneToMany(mappedBy = "factures" , cascade = CascadeType.ALL)
+	private Set<Commande> commande;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "factures")
 	private Set<DetailFacture> detailFactures;
 	@ManyToOne
 	private User user;

@@ -1,5 +1,6 @@
 package tn.magasin.stock.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -11,16 +12,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
 @Table(name="Livraison")
-public class Livraison {
-	@ManyToMany( mappedBy = "livraisons",cascade = CascadeType.ALL)
-	private Set<Facture> factures;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Commande commandes;
+public class Livraison  implements Serializable{
+	@ManyToOne(cascade = CascadeType.ALL )
+	private User user;
+	@OneToMany(cascade = CascadeType.ALL ,  mappedBy = "livraison")
+	private Set<Commande> commandes;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idLivraison")

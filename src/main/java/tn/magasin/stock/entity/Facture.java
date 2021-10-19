@@ -43,6 +43,10 @@ public class Facture implements Serializable {
 	private Date dateFacture;
 	@Column(name="active")
 	private boolean active ;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "facture")
+	private Set<DetailFacture> detailFactures;
+	@ManyToOne
+	private Client client;
 	public Facture(Long idFacture, float montantRemise, float montantFacture, Date dateFacture, boolean active) {
 		super();
 		this.idFacture = idFacture;

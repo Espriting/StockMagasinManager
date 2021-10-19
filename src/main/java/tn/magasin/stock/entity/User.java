@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,7 +25,8 @@ import tn.magasin.stock.enumeration.Profession;
 
 @Entity
 @Table(name="User")
-public class User implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class User implements Serializable {
 
 	/**
 	 * 
@@ -33,9 +36,6 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	
-	
-	
 	@Column(name = "nom")
 	private String nom;
 	@Column(name = "prenom")

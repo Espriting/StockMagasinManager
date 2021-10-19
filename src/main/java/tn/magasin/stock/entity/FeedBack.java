@@ -31,18 +31,12 @@ public class FeedBack  implements Serializable{
 	private Long idFeedBack;
 	@Column(name = "commentaire")
 	private String commentaire;
-	@Column(name = "like")
-	private String like;
-	@Column(name = "dislike")
-	private String dislike;
+	@Column(name = "upLike")
+	private String upLike;
+	@Column(name = "downdLike")
+	private String downLike;
 
-	public FeedBack(Long idFeedBack, String commentaire, String like, String dislike) {
-		super();
-		this.idFeedBack = idFeedBack;
-		this.commentaire = commentaire;
-		this.like = like;
-		this.dislike = dislike;
-	}
+	
 
 	public FeedBack() {
 		super();
@@ -64,19 +58,30 @@ public class FeedBack  implements Serializable{
 		this.commentaire = commentaire;
 	}
 
-	public String getLike() {
-		return like;
+	public FeedBack(Set<User> users, Long idFeedBack, String commentaire, String upLike, String downLike) {
+		super();
+		this.users = users;
+		this.idFeedBack = idFeedBack;
+		this.commentaire = commentaire;
+		this.upLike = upLike;
+		this.downLike = downLike;
 	}
 
-	public void setLike(String like) {
-		this.like = like;
+	public String getUpLike() {
+		return upLike;
 	}
 
-	public String getDislike() {
-		return dislike;
+	public void setUpLike(String upLike) {
+		this.upLike = upLike;
 	}
 
-	public void setDislike(String dislike) {
-		this.dislike = dislike;
+	public String getDownLike() {
+		return downLike;
 	}
+
+	public void setDownLike(String downLike) {
+		this.downLike = downLike;
+	}
+
+	
 }

@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -39,8 +40,7 @@ public class DetailFacture implements Serializable {
 	private float montantRemise;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy ="detailFacture")
-	private List<Produit> produits;
+	
 	
 	@ManyToOne
 	Facture facture;

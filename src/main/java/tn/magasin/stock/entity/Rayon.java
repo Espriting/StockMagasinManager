@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,8 +31,7 @@ public class Rayon implements Serializable{
 	@Column(name = "libelle")
 	private String libelle;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy ="rayon")
-	private List<Produit> produits;
+	
 	
 	
 	public Rayon(Long idRayon, String code, String libelle) {

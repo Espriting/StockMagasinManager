@@ -3,6 +3,7 @@ package tn.magasin.stock.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,20 +44,7 @@ public class Produit implements Serializable{
 	@Column(name = "prixUnitaire")
 	private float prixUnitaire;
 	
-	@OneToOne
-	private DetailProduit detailProduit;
 	
-	@ManyToOne
-	Stock stock;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Fournisseur> fournisseurs;
-	
-	@ManyToOne
-	Rayon rayon;
-	
-	@ManyToOne
-	DetailFacture detailFacture;
 	
 	
 	public Produit(Long idProduit, String code, String libelle, float prixUnitaire) {

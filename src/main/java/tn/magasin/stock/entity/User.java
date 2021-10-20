@@ -2,7 +2,7 @@ package tn.magasin.stock.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +12,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -50,16 +53,11 @@ public class User implements Serializable {
 	@Column(name = "profession")
 	@Enumerated(EnumType.STRING)
 	private Profession profession;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy ="client")
-	private List<Facture> factures;
-	
-	
-	
-	public Client(Long idClient, String nom, String prenom, Date dateNaissance, String email, String password,
-			CategorieClient categorieClient, Profession profession) {
-		super();
-		this.idClient = idClient;
+	@Enumerated(EnumType.STRING)
+	private Role role;
+
+	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;

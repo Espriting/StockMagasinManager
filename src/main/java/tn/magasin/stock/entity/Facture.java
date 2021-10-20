@@ -3,6 +3,7 @@ package tn.magasin.stock.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -44,8 +45,7 @@ public class Facture implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy ="facture")
 	private List<DetailFacture> detailFactures;
 	
-	@ManyToOne
-	Client client;
+	
 	
 	
 	

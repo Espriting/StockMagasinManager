@@ -2,12 +2,17 @@ package tn.magasin.stock.entity;
 
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,17 +24,34 @@ public class Produit implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idClient")
-	private Long idClient ; //clé primaire
+	@Column(name = "idProduit")
+	private Long idProduit ; //clé primaire
 	@Column(name = "code")
 	private String code;
 	@Column(name = "libelle")
 	private String libelle;
 	@Column(name = "prixUnitaire")
 	private float prixUnitaire;
-	public Produit(Long idClient, String code, String libelle, float prixUnitaire) {
+	
+	@OneToOne
+	private DetailProduit detailProduit;
+	
+	@ManyToOne
+	Stock stock;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Fournisseur> fournisseurs;
+	
+	@ManyToOne
+	Rayon rayon;
+	
+	@ManyToOne
+	DetailFacture detailFacture;
+	
+	
+	public Produit(Long idProduit, String code, String libelle, float prixUnitaire) {
 		super();
-		this.idClient = idClient;
+		this.idProduit = idProduit;
 		this.code = code;
 		this.libelle = libelle;
 		this.prixUnitaire = prixUnitaire;
@@ -43,11 +65,11 @@ public class Produit implements Serializable{
 	public Produit() {
 		super();
 	}
-	public Long getIdClient() {
-		return idClient;
+	public Long getidProduit() {
+		return idProduit;
 	}
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
+	public void setidProduit(Long idProduit) {
+		this.idProduit = idProduit;
 	}
 	public String getCode() {
 		return code;

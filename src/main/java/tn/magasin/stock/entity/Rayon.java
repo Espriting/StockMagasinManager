@@ -18,6 +18,8 @@ public class Rayon implements Serializable{
 	/**
 	 * 
 	 */
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "rayon")
+	private Set<Produit> produits;
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

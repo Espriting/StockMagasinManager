@@ -22,6 +22,10 @@ public class Facture implements Serializable {
 	/**
 	 * 
 	 */
+	@OneToMany(mappedBy = "factures" , cascade = CascadeType.ALL)
+	private Set<Commande> commande;
+	@ManyToOne
+	private User user;
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

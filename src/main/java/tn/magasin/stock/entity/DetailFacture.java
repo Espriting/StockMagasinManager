@@ -19,6 +19,11 @@ public class DetailFacture implements Serializable {
 	/**
 	 * 
 	 */
+	@ManyToOne
+	private Facture factures;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "detailFacture")
+	private Set<Produit> produits;
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

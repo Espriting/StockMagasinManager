@@ -56,6 +56,8 @@ public class User implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
+	
+	
 	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
 		this.id = id;
 		this.nom = nom;

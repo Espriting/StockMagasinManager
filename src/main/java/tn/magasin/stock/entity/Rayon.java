@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,6 +18,8 @@ public class Rayon implements Serializable{
 	/**
 	 * 
 	 */
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "rayon")
+	private Set<Produit> produits;
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +29,6 @@ public class Rayon implements Serializable{
 	private String code;
 	@Column(name = "libelle")
 	private String libelle;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "rayon")
-	private Set<Produit> produits;
 	public Rayon(Long idRayon, String code, String libelle) {
 		super();
 		this.idRayon = idRayon;

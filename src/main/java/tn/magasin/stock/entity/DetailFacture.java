@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,6 +19,11 @@ public class DetailFacture implements Serializable {
 	/**
 	 * 
 	 */
+	@ManyToOne
+	private Facture factures;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "detailFacture")
+	private Set<Produit> produits;
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +37,6 @@ public class DetailFacture implements Serializable {
 	private int pourcentageRemise;
 	@Column(name = "montantRemise")
 	private float montantRemise;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "detailFacture")
-	private Set<Produit> produits;
-	@ManyToOne
-	private Facture facture;
-	
 	
 	public DetailFacture(Long idDetailFacture, int qte, float prixTotal, int pourcentageRemise, float montantRemise) {
 		super();

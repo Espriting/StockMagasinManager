@@ -8,13 +8,19 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import tn.magasin.stock.enumeration.CategorieClient;
+import tn.magasin.stock.enumeration.CategorieProduit;
 
 @Entity
 @Table(name = "Produit")
@@ -32,6 +38,10 @@ public class Produit implements Serializable{
 	private DetailFacture detailFacture;
 	@OneToOne
 	private DetailProduit detailProduit;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
+	private Set<Feedback> feedback; 
+	
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,30 +53,48 @@ public class Produit implements Serializable{
 	private String libelle;
 	@Column(name = "prixUnitaire")
 	private float prixUnitaire;
-	
-	
-	
-	
-	public Produit(Long idProduit, String code, String libelle, float prixUnitaire) {
-		super();
-		this.idProduit = idProduit;
-		this.code = code;
-		this.libelle = libelle;
-		this.prixUnitaire = prixUnitaire;
+	@Enumerated(EnumType.STRING)
+	private CategorieProduit categorieProduit;
+	public Stock getStock() {
+		return stock;
 	}
-	public Produit(String code, String libelle, float prixUnitaire) {
-		super();
-		this.code = code;
-		this.libelle = libelle;
-		this.prixUnitaire = prixUnitaire;
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
-	public Produit() {
-		super();
+	public Set<Fournisseur> getFournisseurs() {
+		return fournisseurs;
 	}
-	public Long getidProduit() {
+	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
+		this.fournisseurs = fournisseurs;
+	}
+	public Rayon getRayon() {
+		return rayon;
+	}
+	public void setRayon(Rayon rayon) {
+		this.rayon = rayon;
+	}
+	public DetailFacture getDetailFacture() {
+		return detailFacture;
+	}
+	public void setDetailFacture(DetailFacture detailFacture) {
+		this.detailFacture = detailFacture;
+	}
+	public DetailProduit getDetailProduit() {
+		return detailProduit;
+	}
+	public void setDetailProduit(DetailProduit detailProduit) {
+		this.detailProduit = detailProduit;
+	}
+	public Set<Feedback> getFeedback() {
+		return feedback;
+	}
+	public void setFeedback(Set<Feedback> feedback) {
+		this.feedback = feedback;
+	}
+	public Long getIdProduit() {
 		return idProduit;
 	}
-	public void setidProduit(Long idProduit) {
+	public void setIdProduit(Long idProduit) {
 		this.idProduit = idProduit;
 	}
 	public String getCode() {
@@ -87,6 +115,57 @@ public class Produit implements Serializable{
 	public void setPrixUnitaire(float prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
 	}
+	public CategorieProduit getCategorieProduit() {
+		return categorieProduit;
+	}
+	public void setCategorieProduit(CategorieProduit categorieProduit) {
+		this.categorieProduit = categorieProduit;
+	}
+	public Produit() {
+		super();
+	}
+	public Produit(Set<Feedback> feedback, Long idProduit, String code, String libelle, float prixUnitaire,
+			CategorieProduit categorieProduit) {
+		super();
+		this.feedback = feedback;
+		this.idProduit = idProduit;
+		this.code = code;
+		this.libelle = libelle;
+		this.prixUnitaire = prixUnitaire;
+		this.categorieProduit = categorieProduit;
+	}
 	
+	public Produit(Long idProduit, String code, String libelle, float prixUnitaire, CategorieProduit categorieProduit) {
+		super();
+		this.idProduit = idProduit;
+		this.code = code;
+		this.libelle = libelle;
+		this.prixUnitaire = prixUnitaire;
+		this.categorieProduit = categorieProduit;
+	}
+	
+	public Produit(String code, String libelle, float prixUnitaire, CategorieProduit categorieProduit) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.prixUnitaire = prixUnitaire;
+		this.categorieProduit = categorieProduit;
+	}
+	
+	public Produit(Long idProduit) {
+		super();
+		this.idProduit = idProduit;
+	}
+	@Override
+	public String toString() {
+		return "Produit [ idProduit="
+				+ idProduit + ", code=" + code + ", libelle=" + libelle + ", prixUnitaire=" + prixUnitaire
+				+ ", categorieProduit=" + categorieProduit + "]";
+	}
+	
+	
+	
+	
+
 	
 }

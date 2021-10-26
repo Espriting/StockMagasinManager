@@ -1,0 +1,299 @@
+2021-10-26 23:04:36.426  INFO 74709 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8116 (http)
+2021-10-26 23:04:36.436  INFO 74709 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-26 23:04:36.437  INFO 74709 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-26 23:04:36.521  INFO 74709 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-26 23:04:36.522  INFO 74709 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1057 ms
+2021-10-26 23:04:36.678  INFO 74709 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:04:36.717  INFO 74709 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:04:36.869  INFO 74709 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:04:36.950  INFO 74709 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:04:37.298  INFO 74709 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:04:37.311  INFO 74709 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:04:38.731  INFO 74709 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:04:38.741  INFO 74709 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:04:39.302  WARN 74709 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:04:39.606  INFO 74709 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:04:39.759  INFO 74709 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8116 (http) with context path ''
+2021-10-26 23:04:39.768  INFO 74709 --- [main] t.m.s.MagasinStockManagerApplication     : Started MagasinStockManagerApplication in 4.711 seconds (JVM running for 5.356)
+2021-10-26 23:06:07.840  INFO 74799 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 74799 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:06:07.843  INFO 74799 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:06:08.869  INFO 74799 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:06:09.021  INFO 74799 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:06:09.588  INFO 74799 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:06:09.641  INFO 74799 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:06:09.867  INFO 74799 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:06:09.999  INFO 74799 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:06:10.500  INFO 74799 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:06:10.514  INFO 74799 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:06:12.204  INFO 74799 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:06:12.216  INFO 74799 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:06:13.901  WARN 74799 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:06:14.305  INFO 74799 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:06:14.666  INFO 74799 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 7.173 seconds (JVM running for 8.535)
+2021-10-26 23:06:14.709 ERROR 74799 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1033576a] to prepare test instance [tn.magasin.stock.service.FeedbackServiceTest@3c6fb501]
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tn.magasin.stock.service.FeedbackServiceTest': Unsatisfied dependency expressed through field 'user'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'tn.magasin.stock.entity.Feedback' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:119) ~[spring-test-5.3.10.jar:5.3.10]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83) ~[spring-test-5.3.10.jar:5.3.10]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43) ~[spring-boot-test-autoconfigure-2.5.5.jar:2.5.5]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248) ~[spring-test-5.3.10.jar:5.3.10]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:138) [spring-test-5.3.10.jar:5.3.10]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193) ~[na:1.8.0_261]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175) ~[na:1.8.0_261]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384) ~[na:1.8.0_261]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482) ~[na:1.8.0_261]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_261]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[na:1.8.0_261]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:743) ~[na:1.8.0_261]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:742) ~[na:1.8.0_261]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580) ~[na:1.8.0_261]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at java.util.Optional.orElseGet(Optional.java:267) ~[na:1.8.0_261]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) [junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.2.jar:5.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) ~[na:1.8.0_261]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1259) ~[na:1.8.0_261]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) ~[junit-platform-launcher-1.7.2.jar:1.7.2]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) ~[.cp/:na]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'tn.magasin.stock.entity.Feedback' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1790) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1346) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300) ~[spring-beans-5.3.10.jar:5.3.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.10.jar:5.3.10]
+	... 74 common frames omitted
+
+2021-10-26 23:06:14.735  INFO 74799 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:06:14.738  INFO 74799 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:06:14.753  INFO 74799 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:06:49.925  INFO 74851 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 74851 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:06:49.928  INFO 74851 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:06:50.768  INFO 74851 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:06:50.896  INFO 74851 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:06:51.421  INFO 74851 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:06:51.470  INFO 74851 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:06:51.676  INFO 74851 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:06:51.807  INFO 74851 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:06:52.308  INFO 74851 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:06:52.322  INFO 74851 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:06:54.019  INFO 74851 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:06:54.033  INFO 74851 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:06:55.293  WARN 74851 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:06:55.709  INFO 74851 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:06:55.998  INFO 74851 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.408 seconds (JVM running for 7.47)
+2021-10-26 23:06:56.408  INFO 74851 --- [main] t.m.stock.service.FeedbackServiceTest    : Produit suprime!!
+2021-10-26 23:06:56.459  INFO 74851 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:06:56.463  INFO 74851 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:06:56.504  INFO 74851 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:07:09.053  INFO 74884 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 74884 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:07:09.057  INFO 74884 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:07:09.691  INFO 74884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:07:09.791  INFO 74884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:07:10.417  INFO 74884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:07:10.506  INFO 74884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:07:10.769  INFO 74884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:07:10.889  INFO 74884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:07:11.297  INFO 74884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:07:11.317  INFO 74884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:07:13.003  INFO 74884 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:07:13.014  INFO 74884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:07:14.297  WARN 74884 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:07:14.692  INFO 74884 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:07:14.996  INFO 74884 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.645 seconds (JVM running for 7.786)
+2021-10-26 23:07:15.214  INFO 74884 --- [main] t.m.stock.service.FeedbackServiceTest    : Feedback [user=User [id=2, nom=null, prenom=null, dateNaissance=null, email=null, password=null, categorieClient=null, profession=null, role=null], produit=Produit [ idProduit=3, code=null, libelle=null, prixUnitaire=0.0, categorieProduit=null], idFeedback=10, commentaire=test, liked=null, disliked=null]
+2021-10-26 23:07:15.246  INFO 74884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:07:15.249  INFO 74884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:07:15.286  INFO 74884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:09:56.899  INFO 75079 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75079 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:09:56.901  INFO 75079 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:09:57.599  INFO 75079 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:09:57.713  INFO 75079 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:09:58.220  INFO 75079 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:09:58.268  INFO 75079 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:09:58.472  INFO 75079 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:09:58.591  INFO 75079 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:09:59.059  INFO 75079 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:09:59.073  INFO 75079 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:10:00.700  INFO 75079 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:10:00.712  INFO 75079 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:10:02.019  WARN 75079 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:10:02.382  INFO 75079 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:10:02.763  INFO 75079 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.234 seconds (JVM running for 7.328)
+2021-10-26 23:10:03.017  INFO 75079 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=3, code=codeUpdated1, libelle=libelleUpdated, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=1, commentaire=test1, liked=null, disliked=null]
+2021-10-26 23:10:03.018  INFO 75079 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=3, code=codeUpdated1, libelle=libelleUpdated, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=7, commentaire=null, liked=false, disliked=true]
+2021-10-26 23:10:03.019  INFO 75079 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=3, code=codeUpdated1, libelle=libelleUpdated, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=8, commentaire=null, liked=true, disliked=false]
+2021-10-26 23:10:03.019  INFO 75079 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=3, code=codeUpdated1, libelle=libelleUpdated, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=9, commentaire=null, liked=true, disliked=false]
+2021-10-26 23:10:03.019  INFO 75079 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=3, code=codeUpdated1, libelle=libelleUpdated, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=10, commentaire=test, liked=null, disliked=null]
+2021-10-26 23:10:03.067  INFO 75079 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:10:03.070  INFO 75079 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:10:03.076  INFO 75079 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:13:01.669  INFO 75332 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75332 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:13:01.672  INFO 75332 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:13:02.428  INFO 75332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:13:02.560  INFO 75332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:13:03.457  INFO 75332 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:13:03.514  INFO 75332 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:13:03.718  INFO 75332 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:13:03.825  INFO 75332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:13:04.222  INFO 75332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:13:04.237  INFO 75332 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:13:06.077  INFO 75332 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:13:06.087  INFO 75332 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:13:07.389  WARN 75332 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:13:07.935  INFO 75332 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:13:08.272  INFO 75332 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 7.009 seconds (JVM running for 8.325)
+2021-10-26 23:13:08.437  INFO 75332 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=4, code=code, libelle=libele, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=4, commentaire=testUpdated, liked=null, disliked=null]
+2021-10-26 23:13:08.486  INFO 75332 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:13:08.494  INFO 75332 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:13:08.550  INFO 75332 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:14:24.909  INFO 75411 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75411 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:14:24.911  INFO 75411 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:14:25.642  INFO 75411 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:14:25.744  INFO 75411 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:14:26.288  INFO 75411 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:14:26.352  INFO 75411 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:14:26.587  INFO 75411 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:14:26.721  INFO 75411 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:14:27.143  INFO 75411 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:14:27.158  INFO 75411 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:14:28.615  INFO 75411 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:14:28.625  INFO 75411 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:14:29.852  WARN 75411 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:14:30.277  INFO 75411 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:14:30.592  INFO 75411 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.149 seconds (JVM running for 7.345)
+2021-10-26 23:14:30.783  INFO 75411 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=4, code=code, libelle=libele, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=4, commentaire=testUpdated, liked=null, disliked=null]
+2021-10-26 23:14:30.795  INFO 75411 --- [main] tn.magasin.stock.Service.ProduitService  : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=4, code=code, libelle=libele, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=4, commentaire=testUpdated, liked=null, disliked=null]
+2021-10-26 23:14:30.877  INFO 75411 --- [main] t.m.stock.service.FeedbackServiceTest    : Feedback: Feedback [user=User [id=2, nom=dffdfd, prenom=fddfdf, dateNaissance=2021-10-12, email=fddfdf, password=dfdfdf, categorieClient=Ordinaire, profession=Docteur, role=ADMIN], produit=Produit [ idProduit=4, code=code, libelle=libele, prixUnitaire=80.0, categorieProduit=Electromenager], idFeedback=4, commentaire=testUpdated222, liked=null, disliked=null]
+2021-10-26 23:14:30.904  INFO 75411 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:14:30.906  INFO 75411 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:14:30.913  INFO 75411 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:16:36.518  INFO 75544 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75544 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:16:36.520  INFO 75544 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:16:37.127  INFO 75544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:16:37.241  INFO 75544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:16:37.940  INFO 75544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:16:37.990  INFO 75544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:16:38.182  INFO 75544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:16:38.284  INFO 75544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:16:38.676  INFO 75544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:16:38.691  INFO 75544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:16:40.475  INFO 75544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:16:40.486  INFO 75544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:16:41.664  WARN 75544 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:16:42.217  INFO 75544 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:16:42.532  INFO 75544 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.335 seconds (JVM running for 7.586)
+2021-10-26 23:16:42.710  INFO 75544 --- [main] t.m.stock.service.FeedbackServiceTest    : Feedback [user=User [id=2, nom=null, prenom=null, dateNaissance=null, email=null, password=null, categorieClient=null, profession=null, role=null], produit=Produit [ idProduit=3, code=null, libelle=null, prixUnitaire=0.0, categorieProduit=null], idFeedback=11, commentaire=null, liked=true, disliked=false]
+2021-10-26 23:16:42.735  INFO 75544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:16:42.738  INFO 75544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:16:42.743  INFO 75544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:17:46.632  INFO 75628 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75628 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:17:46.636  INFO 75628 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:17:47.292  INFO 75628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:17:47.409  INFO 75628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:17:47.943  INFO 75628 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:17:48.000  INFO 75628 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:17:48.238  INFO 75628 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:17:48.376  INFO 75628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:17:48.769  INFO 75628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:17:48.784  INFO 75628 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:17:50.294  INFO 75628 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:17:50.306  INFO 75628 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:17:51.488  WARN 75628 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:17:51.926  INFO 75628 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:17:52.248  INFO 75628 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.108 seconds (JVM running for 7.225)
+2021-10-26 23:17:52.586  INFO 75628 --- [main] t.m.stock.service.FeedbackServiceTest    : Feedback [user=User [id=2, nom=null, prenom=null, dateNaissance=null, email=null, password=null, categorieClient=null, profession=null, role=null], produit=Produit [ idProduit=3, code=null, libelle=null, prixUnitaire=0.0, categorieProduit=null], idFeedback=12, commentaire=null, liked=false, disliked=true]
+2021-10-26 23:17:52.610  INFO 75628 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:17:52.613  INFO 75628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:17:52.619  INFO 75628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:19:28.594  INFO 75745 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75745 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:19:28.597  INFO 75745 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:19:29.305  INFO 75745 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:19:29.431  INFO 75745 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:19:29.967  INFO 75745 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:19:30.019  INFO 75745 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:19:30.226  INFO 75745 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:19:30.328  INFO 75745 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:19:30.854  INFO 75745 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:19:30.873  INFO 75745 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:19:32.447  INFO 75745 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:19:32.459  INFO 75745 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:19:33.787  WARN 75745 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:19:34.256  INFO 75745 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:19:34.614  INFO 75745 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.555 seconds (JVM running for 7.75)
+2021-10-26 23:19:34.824  INFO 75745 --- [main] tn.magasin.stock.Service.ProduitService  : Likes: 3
+2021-10-26 23:19:34.826  INFO 75745 --- [main] t.m.stock.service.FeedbackServiceTest    : 3
+2021-10-26 23:19:34.858  INFO 75745 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:19:34.862  INFO 75745 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:19:34.872  INFO 75745 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-26 23:20:57.711  INFO 75851 --- [main] t.m.stock.service.FeedbackServiceTest    : Starting FeedbackServiceTest using Java 1.8.0_261 on Achrefs-MacBook-Pro.local with PID 75851 (started by achrefbaraketi in /Users/achrefbaraketi/Documents/GitHub/StockMagasinManager)
+2021-10-26 23:20:57.713  INFO 75851 --- [main] t.m.stock.service.FeedbackServiceTest    : No active profile set, falling back to default profiles: default
+2021-10-26 23:20:58.414  INFO 75851 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-26 23:20:58.542  INFO 75851 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 13 JPA repository interfaces.
+2021-10-26 23:20:59.087  INFO 75851 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-26 23:20:59.137  INFO 75851 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-26 23:20:59.337  INFO 75851 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-26 23:20:59.431  INFO 75851 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-26 23:20:59.947  INFO 75851 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-26 23:20:59.963  INFO 75851 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-26 23:21:01.742  INFO 75851 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-26 23:21:01.753  INFO 75851 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:21:03.047  WARN 75851 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-26 23:21:03.590  INFO 75851 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-10-26 23:21:03.912  INFO 75851 --- [main] t.m.stock.service.FeedbackServiceTest    : Started FeedbackServiceTest in 6.51 seconds (JVM running for 7.697)
+2021-10-26 23:21:04.156  INFO 75851 --- [main] tn.magasin.stock.Service.ProduitService  : dislikes: 2
+2021-10-26 23:21:04.158  INFO 75851 --- [main] t.m.stock.service.FeedbackServiceTest    : 2
+2021-10-26 23:21:04.187  INFO 75851 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-26 23:21:04.190  INFO 75851 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-26 23:21:04.197  INFO 75851 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -23,6 +23,23 @@ public class Livraison  implements Serializable{
 	private User user;
 	@OneToMany(cascade = CascadeType.ALL ,  mappedBy = "livraison")
 	private Set<Commande> commandes;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Set<Commande> getCommandes() {
+		return commandes;
+	}
+
+	public void setCommandes(Set<Commande> commandes) {
+		this.commandes = commandes;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idLivraison")

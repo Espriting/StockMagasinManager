@@ -30,6 +30,15 @@ public class Commande implements Serializable{
 	@Column(name = "dateCommande")
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
+
+	public Livraison getLivraison() {
+		return livraison;
+	}
+
+	public void setLivraison(Livraison livraison) {
+		this.livraison = livraison;
+	}
+
 	@Column(name = "etat")
 	private Boolean etat;
 	public Commande(Long idCommande, Date dateCommande, Boolean etat) {
@@ -58,5 +67,13 @@ public class Commande implements Serializable{
 	}
 	public void setEtat(Boolean etat) {
 		this.etat = etat;
+	}
+
+	public Facture getFactures() {
+		return factures;
+	}
+
+	public void setFactures(Facture factures) {
+		this.factures = factures;
 	}
 }

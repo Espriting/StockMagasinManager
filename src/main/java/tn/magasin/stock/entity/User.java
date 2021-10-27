@@ -24,6 +24,7 @@ import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
 import tn.magasin.stock.enumeration.Role;
 
+
 @Entity
 @Table(name="User")
 public class User implements Serializable {

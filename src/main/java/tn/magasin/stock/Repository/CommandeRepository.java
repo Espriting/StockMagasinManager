@@ -1,8 +1,19 @@
 package tn.magasin.stock.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tn.magasin.stock.entity.Commande;
+import tn.magasin.stock.entity.Facture;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface CommandeRepository extends JpaRepository<Commande, Long> {
+ @Query(value = "SELECT * FROM Commande c , Facture f where c.factures_id_facture = f.id_facture AND f.id_facture = :fact" , nativeQuery = true)
+ Optional<Commande> FindByFactures(@Param("fact") Long fact);
+
 }

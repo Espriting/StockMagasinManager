@@ -4,7 +4,6 @@ package tn.magasin.stock.entity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,6 +49,7 @@ public class Produit implements Serializable{
 	@ToString.Exclude private Set<Fournisseur> fournisseurs;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+
 	@ToString.Exclude private Rayon rayon;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -60,7 +60,6 @@ public class Produit implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
 	@ToString.Exclude private Set<Feedback> feedback; 
-	
 	
 	private static final long serialVersionUID = 1L;
 	@Id

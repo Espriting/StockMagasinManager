@@ -2,6 +2,8 @@ package tn.magasin.stock.IService;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import tn.magasin.stock.entity.Feedback;
 
 public interface IFeedbackService {
@@ -14,9 +16,9 @@ public interface IFeedbackService {
 
 	Feedback updateComment(Long idFeedback ,Feedback f);
 	
-	Feedback like(Feedback f);
+	Feedback addReaction(Feedback f);
 	
-	Feedback dislike(Feedback f);
+	Feedback updateReaction(Long idFeedback,Feedback f);
 
 	Feedback retrieveFeedback(Long idFeedback);
 	

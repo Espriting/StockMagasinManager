@@ -13,8 +13,23 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import tn.magasin.stock.enumeration.CategorieProduit;
+
 @Entity
 @Table(name = "Feedback")
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+
+
 public class Feedback  implements Serializable{
 	@ManyToOne
 	private User user;
@@ -28,38 +43,14 @@ public class Feedback  implements Serializable{
 	private Long idFeedback;
 	@Column(name = "commentaire")
 	private String commentaire;
-	@Column(name = "liked")
-	private Boolean liked;
-	@Column(name = "disliked")
-	private Boolean disliked;
+	@Column(name = "reaction")
+	private String reaction;
 	
 	
 	
 	
-	public Feedback() {
-		super();
-	}
 	
 	
-	
-	public Feedback(User user, Boolean disliked, Produit produit) {
-		super();
-		this.user = user;
-		this.disliked = disliked;
-		this.produit = produit;
-		
-	}
-
-
-
-	public Feedback(User user, Produit produit, Boolean liked) {
-		super();
-		this.user = user;
-		this.produit = produit;
-		this.liked = liked;
-	}
-
-
 
 	public Feedback(User user, Produit produit, String commentaire) {
 		super();
@@ -70,73 +61,42 @@ public class Feedback  implements Serializable{
 
 
 
-	public Feedback(User user, Produit produit, String commentaire, Boolean liked, Boolean disliked) {
+	public Feedback(User user, Produit produit, String commentaire, String reaction) {
 		super();
 		this.user = user;
 		this.produit = produit;
 		this.commentaire = commentaire;
-		this.liked = liked;
-		this.disliked = disliked;
+		this.reaction = reaction;
 	}
 
 
 
-	public Feedback(User user, Produit produit, Long idFeedback, String commentaire, Boolean liked, Boolean disliked) {
+	public Feedback(Long idFeedback,User user, Produit produit,  String commentaire) {
 		super();
+		this.idFeedback = idFeedback;
 		this.user = user;
 		this.produit = produit;
-		this.idFeedback = idFeedback;
+		
 		this.commentaire = commentaire;
-		this.liked = liked;
-		this.disliked = disliked;
 	}
 
 
 
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
+	public Feedback(String reaction, User user, Produit produit) {
+		super();
+		this.reaction = reaction;
 		this.user = user;
-	}
-	public Produit getProduit() {
-		return produit;
-	}
-	public void setProduit(Produit produit) {
 		this.produit = produit;
-	}
-	public Long getIdFeedback() {
-		return idFeedback;
-	}
-	public void setIdFeedback(Long idFeedback) {
-		this.idFeedback = idFeedback;
-	}
-	public String getCommentaire() {
-		return commentaire;
-	}
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;
-	}
-	public Boolean isLike() {
-		return liked;
-	}
-	public void setLike(Boolean liked) {
-		this.liked = liked;
-	}
-	public Boolean isDislike() {
-		return disliked;
-	}
-	public void setDislike(Boolean disliked) {
-		this.disliked = disliked;
+		
 	}
 
 
 
-	@Override
-	public String toString() {
-		return "Feedback [user=" + user + ", produit=" + produit + ", idFeedback=" + idFeedback + ", commentaire="
-				+ commentaire + ", liked=" + liked + ", disliked=" + disliked + "]";
-	}
+	
+
+	
+
+
 
 	
 	

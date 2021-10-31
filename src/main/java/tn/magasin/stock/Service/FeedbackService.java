@@ -78,28 +78,33 @@ public class FeedbackService implements IFeedbackService{
 
 	@Override
 	@ResponseBody
-	@PostMapping("/addLike")
+	@PostMapping("/addReaction")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Feedback like(@Valid @RequestBody Feedback f) {
-		f.setLike(true);
-		f.setDislike(false);
-		f.setCommentaire(null);
-		return feedbackRepository.save(f);
+	public Feedback addReaction(@Valid @RequestBody Feedback f) {
+		
+			return feedbackRepository.save(f);
+
 	}
 
 	@Override
-	@PostMapping("/addDislike")
+	@PostMapping("/updateReaction/{idFeedback}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Feedback dislike(@Valid @RequestBody Feedback f) {
-		f.setLike(false);
-		f.setDislike(true);
-		f.setCommentaire(null);
-		return feedbackRepository.save(f);
-	}
+	public Feedback updateReaction(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
+		//System.out.println(feedbackRepository.checkReaction((long) 2,(long) 3));
+		
+			Feedback f1 = retrieveFeedback(idFeedback);
+			f1.setReaction(f.getReaction());
+
+			//f.setCommentaire(null);
+			return feedbackRepository.save(f1);
+		}
+		
+
+	
 
 	@Override
 	public Feedback retrieveFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
-		Feedback f = feedbackRepository.findById(idFeedback).orElseThrow(() -> new NoSuchElementException("Product not found for this id :: " + idFeedback)); ;
+		Feedback f = feedbackRepository.findById(idFeedback).orElseThrow(() -> new NoSuchElementException(" not found for this id :: " + idFeedback)) ;
 		l.info("Feedback: "+ f);
 		return f ;
 	}

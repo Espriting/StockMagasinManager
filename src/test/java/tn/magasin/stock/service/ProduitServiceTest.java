@@ -1,15 +1,26 @@
 package tn.magasin.stock.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
@@ -18,17 +29,94 @@ import tn.magasin.stock.enumeration.CategorieProduit;
 import tn.magasin.stock.Repository.ProduitRepository;
 import tn.magasin.stock.Service.ProduitService;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 class ProduitServiceTest {
 
 	
 private static final Logger l = LogManager.getLogger(ProduitServiceTest.class);
 	
-	@Autowired
+	@Mock
+	private ProduitRepository produitRepository;
+	
+	@InjectMocks
 	private ProduitService ps;
 	
+	@Test
+	void addProduitTest() {
 	
+		Produit p = new Produit(50L ,"code","libelle",70,CategorieProduit.Alimentaire);
+		Mockito.when(produitRepository.save(p)).thenReturn(p);
+		Produit p1 = ps.addProduct(p);
+		assertThat(p).isEqualTo(p1);
+	}
+	
+	@Test
+	void retreiveAllProduitsTest() {
+		List<Produit> produits = new ArrayList<>();
+		produits.add(new Produit());
+		produits.add(new Produit());
+		produits.add(new Produit());
+		Mockito.when(produitRepository.findAll()).thenReturn(produits);
+		List<Produit> expected = ps.retrieveAllProducts();
+		System.out.println(produits.size());
+		assertEquals(expected, produits);
+		assertEquals(3, produits.size());	
+	}
+	
+	
+	@Test
+	void retreiveProduitTest() {
+		Produit p = new Produit();
+		p.setIdProduit((long)55);
+		p.setCategorieProduit(CategorieProduit.Alimentaire);
+		p.setCode("code");
+		p.setLibelle("libelle");
+		p.setPrixUnitaire(50);
+		Mockito.when(produitRepository.findById(p.getIdProduit())).thenReturn(Optional.of(p));
+		ps.retrieveProduct(p.getIdProduit());
+		System.out.println(p);
+		assertThat(produitRepository.findById(p.getIdProduit()).get().getCode()).isEqualTo(p.getCode());
+		assertThat(produitRepository.findById(p.getIdProduit()).get().getIdProduit()).isEqualTo(p.getIdProduit());	
+	}
+	
+	@Test
+	void UpdateProduitTest() {
+		Produit p = new Produit();
+		p.setIdProduit((long)55);
+		p.setCategorieProduit(CategorieProduit.Alimentaire);
+		p.setCode("code");
+		p.setLibelle("libelle");
+		p.setPrixUnitaire(50);
+		Produit newp = new Produit();
+		newp.setIdProduit(p.getIdProduit());
+		newp.setCategorieProduit(CategorieProduit.Electromenager);
+		newp.setLibelle("libelle1");
+		newp.setPrixUnitaire(100);
+		newp.setCode("newCode");
+		Mockito.when(produitRepository.findById(p.getIdProduit())).thenReturn(Optional.of(p));
+		ps.updateProduct(p.getIdProduit(), newp);
+		System.out.println(newp);
+		System.out.println(p);
+		assertThat(newp.getCode()).isEqualTo(p.getCode());
+		assertThat(newp.getCategorieProduit()).isEqualTo(p.getCategorieProduit());
+	}
+	
+	
+	@Test
+	void deleteProduitTest() {
+		Produit p = new Produit();
+		p.setIdProduit((long)55);
+		p.setCategorieProduit(CategorieProduit.Alimentaire);
+		p.setCode("code");
+		p.setLibelle("libelle");
+		p.setPrixUnitaire(50);
+		Mockito.when(produitRepository.findById(p.getIdProduit())).thenReturn(null);
+		ps.deleteProduct(p.getIdProduit());
+		System.out.println(p);
+		assertThat(produitRepository.findById(p.getIdProduit())).isEqualTo(null);
+	}
+/*	
 		@Test
 	void addProductTest() throws ParseException {
 			
@@ -40,8 +128,7 @@ private static final Logger l = LogManager.getLogger(ProduitServiceTest.class);
 		System.out.println("                ");
 		System.out.println("                ");
 		System.out.println("                ");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = dateFormat.parse("2015-03-23");
+		
 		Produit p = new Produit("code","libele",80, CategorieProduit.Electromenager);
 		
 		ps.addProduct(p);
@@ -144,6 +231,6 @@ private static final Logger l = LogManager.getLogger(ProduitServiceTest.class);
 		System.out.println("                ");
 	}
 	
-	
+	*/
 	
 	}

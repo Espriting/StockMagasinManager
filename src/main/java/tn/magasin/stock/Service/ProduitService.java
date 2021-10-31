@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import tn.magasin.stock.entity.Produit;
+import tn.magasin.stock.enumeration.CategorieProduit;
 import tn.magasin.stock.IService.IProduitService;
 import tn.magasin.stock.Repository.ProduitRepository;
 
@@ -66,6 +67,7 @@ public class ProduitService implements IProduitService{
     	p1.setCode(p.getCode()); 
     	p1.setLibelle(p.getLibelle());
     	p1.setPrixUnitaire(p.getPrixUnitaire());
+    	p1.setCategorieProduit(p.getCategorieProduit());
     	
     			
 		return produitRepository.save(p1);

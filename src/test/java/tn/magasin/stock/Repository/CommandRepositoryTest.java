@@ -21,10 +21,10 @@ public class CommandRepositoryTest {
     @Autowired
     CommandeService cs;
     private static final Logger l = LogManager.getLogger(CommandRepositoryTest.class);
-    @Test
+  /*  @Test
     public void     testRetrieveCommand () throws  Exception{
         Optional<Commande> commande = cs.retrieveCommandeByFacture(1L);
         TestCase.assertNotNull(commande.get().getIdCommande());
         l.info("retrieve : "+ commande.get().getIdCommande());
-    }
+    }*/
 }

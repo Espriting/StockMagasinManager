@@ -1,6 +1,7 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="Stock")
@@ -31,6 +33,10 @@ public class Stock implements Serializable{
 	private int qteMin;
 	@Column(name = "libelleStock")
 	private String libelleStock;
+	
+	
+	
+	
 	public Stock(Long idStock, int qte, int qteMin, String libelleStock) {
 		super();
 		this.idStock = idStock;

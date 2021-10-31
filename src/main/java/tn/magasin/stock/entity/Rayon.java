@@ -1,6 +1,7 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,10 @@ public class Rayon implements Serializable{
 	private String code;
 	@Column(name = "libelle")
 	private String libelle;
+	
+	
+	
+	
 	public Rayon(Long idRayon, String code, String libelle) {
 		super();
 		this.idRayon = idRayon;

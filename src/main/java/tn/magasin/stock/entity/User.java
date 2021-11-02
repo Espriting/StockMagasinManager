@@ -71,6 +71,17 @@ public class User implements Serializable {
 	public User() {
 	}
 
+	public User(String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.email = email;
+		this.password = password;
+		this.categorieClient = categorieClient;
+		this.profession = profession;
+		this.role = role;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -141,5 +152,20 @@ public class User implements Serializable {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", nom='" + nom + '\'' +
+				", prenom='" + prenom + '\'' +
+				", dateNaissance=" + dateNaissance +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", categorieClient=" + categorieClient +
+				", profession=" + profession +
+				", role=" + role +
+				'}';
 	}
 }

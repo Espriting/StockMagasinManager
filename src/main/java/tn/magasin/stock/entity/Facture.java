@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -41,10 +41,10 @@ public class Facture implements Serializable {
 	private Date dateFacture;
 	@Column(name="active")
 	private boolean active ;
+
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "factures")
 	private Set<DetailFacture> detailFactures;
-	@ManyToOne
-	private User client;
+
 	public Facture(Long idFacture, float montantRemise, float montantFacture, Date dateFacture, boolean active) {
 		super();
 		this.idFacture = idFacture;

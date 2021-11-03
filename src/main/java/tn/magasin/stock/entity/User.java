@@ -32,6 +32,11 @@ public class User implements Serializable {
 	/**
 	 * 
 	 */
+	@OneToMany(mappedBy = "user")
+	private Set<Feedback> feedback;
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,6 +77,11 @@ public class User implements Serializable {
 	}
 
 	public User() {
+	}
+
+	public User(Long id) {
+		super();
+		this.id = id;
 	}
 
 	public Long getId() {
@@ -145,4 +155,21 @@ public class User implements Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	public Set<Feedback> getFeedback() {
+		return feedback;
+	}
+
+	public void setFeedback(Set<Feedback> feedback) {
+		this.feedback = feedback;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+				+ ", email=" + email + ", password=" + password + ", categorieClient=" + categorieClient
+				+ ", profession=" + profession + ", role=" + role + "]";
+	}
+	
+	
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import tn.magasin.stock.entity.Produit;
 import tn.magasin.stock.enumeration.CategorieProduit;
@@ -26,7 +27,6 @@ import tn.magasin.stock.Repository.ProduitRepository;
 
 
 @Service
-@RequestMapping("/produit")
 public class ProduitService implements IProduitService{
     
     @Autowired
@@ -35,7 +35,6 @@ public class ProduitService implements IProduitService{
     private static final Logger l = LogManager.getLogger(ProduitService.class);
 
     @Override
-	@GetMapping("/display")
 	public List<Produit> retrieveAllProducts() {
 		List<Produit> produits = (List<Produit>) produitRepository.findAll();
 		
@@ -47,20 +46,16 @@ public class ProduitService implements IProduitService{
 	}
 
     @Override
-	@PostMapping("/add")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Produit addProduct(@Valid @RequestBody Produit c) {
 		return produitRepository.save(c);
 	}
 
     @Override
-	@DeleteMapping("/delete/{idProduit}")
 	public void deleteProduct(@PathVariable(value = "idProduit") Long idProduit) throws NoSuchElementException {
     	produitRepository.deleteById(idProduit);
 	}
 
     @Override
-	@PutMapping("/update/{idProduit}")
 	public Produit updateProduct(@PathVariable(value = "idProduit") Long idProduit, @Valid @RequestBody Produit p) {
     	Produit p1 = retrieveProduct(idProduit);
 		

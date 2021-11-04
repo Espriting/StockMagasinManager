@@ -18,7 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,29 +38,33 @@ import tn.magasin.stock.enumeration.CategorieProduit;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 
 
 
 public class Produit implements Serializable{
-	/**
-	 * 
-	 */
+	
+	@JsonIgnore
 	@ManyToOne
 	@ToString.Exclude private Stock stock;
 	
+	@JsonIgnore
 	@ManyToMany( cascade = CascadeType.ALL)
 	@ToString.Exclude private Set<Fournisseur> fournisseurs;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-
 	@ToString.Exclude private Rayon rayon;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ToString.Exclude private DetailFacture detailFacture;
 	
+	@JsonIgnore
 	@OneToOne
 	@ToString.Exclude private DetailProduit detailProduit;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
 	@ToString.Exclude private Set<Feedback> feedback; 
 	

@@ -27,7 +27,6 @@ import tn.magasin.stock.entity.Feedback;
 import tn.magasin.stock.entity.Produit;
 
 @Service
-@RequestMapping("/feedback")
 public class FeedbackService implements IFeedbackService{
 
 	@Autowired
@@ -37,7 +36,6 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	@GetMapping("/display/{idProduit}")
 	public List<Feedback> retrieveAllFeedbacks(@PathVariable(value = "idProduit") Long idProduit) {
 		List<Feedback> feedbacks = (List<Feedback>) feedbackRepository.findAllByIdProduit(idProduit);
 		//System.out.println(feedbacks);
@@ -50,7 +48,6 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	@PostMapping("/addComment")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Feedback addComment(@Valid @RequestBody Feedback c) {
 		return feedbackRepository.save(c);
@@ -58,14 +55,12 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	@DeleteMapping("/delete/{idFeedback}")
 	public void deleteFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
 		feedbackRepository.deleteById(idFeedback);
 
 	}
 
 	@Override
-	@PutMapping("/updateComment/{idFeedback}")
 	public Feedback updateComment(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
 		Feedback f1 = retrieveFeedback(idFeedback);
 
@@ -77,9 +72,6 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	@ResponseBody
-	@PostMapping("/addReaction")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Feedback addReaction(@Valid @RequestBody Feedback f) {
 		
 			return feedbackRepository.save(f);
@@ -87,8 +79,6 @@ public class FeedbackService implements IFeedbackService{
 	}
 
 	@Override
-	@PostMapping("/updateReaction/{idFeedback}")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Feedback updateReaction(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
 		//System.out.println(feedbackRepository.checkReaction((long) 2,(long) 3));
 		
@@ -111,8 +101,6 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	@ResponseBody
-	@GetMapping("/nbrLike/{idProduit}")
 	public long nbrLikes(@PathVariable(value = "idProduit") long idProduit) {
 		long likes = (long) feedbackRepository.nbrLikes(idProduit);
 		l.info("Likes: "+ likes);
@@ -120,8 +108,6 @@ public class FeedbackService implements IFeedbackService{
 	}
 
 	@Override
-	@ResponseBody
-	@GetMapping("/nbrDislike/{idProduit}")
 	public long nbrDislikes(@PathVariable(value = "idProduit") long idProduit) {
 		long dislikes = (long) feedbackRepository.nbrDislikes(idProduit);
 		l.info("dislikes: "+ dislikes);

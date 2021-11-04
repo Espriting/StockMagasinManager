@@ -92,6 +92,20 @@ public class Feedback  implements Serializable{
 
 
 
+	public Feedback(Long idFeedback) {
+		super();
+		this.idFeedback = idFeedback;
+	}
+
+
+
+	public Feedback(Produit produit) {
+		super();
+		this.produit = produit;
+	}
+
+
+
 	
 
 	

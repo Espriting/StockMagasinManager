@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tn.magasin.stock.IService.IAccompte;
+import tn.magasin.stock.IService.IAccompteService;
 import tn.magasin.stock.Repository.AccompteRepository;
 import tn.magasin.stock.entity.Accompte;
 
 @Service
-public class AccompteService implements IAccompte {
+public class AccompteService implements IAccompteService {
     public final AccompteRepository accompteRepository;
 
     @Autowired

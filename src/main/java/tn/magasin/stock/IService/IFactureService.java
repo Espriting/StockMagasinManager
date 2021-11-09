@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import tn.magasin.stock.entity.Facture;
-import tn.magasin.stock.entity.User;
 
 
 public interface IFactureService {

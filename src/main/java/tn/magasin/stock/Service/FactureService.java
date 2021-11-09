@@ -40,9 +40,9 @@ public  class FactureService implements IFactureService {
     }
 
     @Override
-    public Optional<Facture> retrieveFacture(Long Id) {
+    public Optional<Facture> retrieveFacture(Long idFacture) {
 
 
-        return factureRepository.findById(Id);
+        return factureRepository.findById(idFacture);
     }
 }

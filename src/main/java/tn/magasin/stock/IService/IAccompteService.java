@@ -6,7 +6,7 @@ import tn.magasin.stock.entity.Accompte;
 import tn.magasin.stock.entity.Accompte;
 
 
-public interface IAccompte {
+public interface IAccompteService {
 	
 	Accompte addAccompte(Accompte accompte);
     void deleteAccompteById(Long Accompte);

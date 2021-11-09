@@ -40,8 +40,10 @@ public class LivraisonService implements ILivraisonService {
 
     @Override
     public Optional<Livraison> retrieveLivraison(Long Id) {
-
-
         return livraisonRepository.findById(Id);
+    }
+    @Override
+    public Optional<Livraison> retrieveLivraisonByLivreur(Long Id) {
+        return livraisonRepository.FindByLivreur(Id);
     }
 }

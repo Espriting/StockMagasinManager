@@ -35,8 +35,8 @@ public class CommandeService implements ICommandeService {
 
 
     @Override
-    public Commande updateCommande(Commande commande) {
-        return commandeRepository.save(commande);
+    public Commande updateCommande(Commande commandeUp) {
+        return commandeRepository.save(commandeUp);
     }
 
     @Override

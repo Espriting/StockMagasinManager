@@ -50,5 +50,9 @@ public class CommandeService implements ICommandeService {
 
         return commandeRepository.FindByFactures(Id);
     }
+    @Override
+    public Optional<Commande> retrieveCommandeByClient(Long Id) {
+        return commandeRepository.FindCommandeByClient(Id);
+    }
 
 }

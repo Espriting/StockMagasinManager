@@ -37,6 +37,8 @@ public class Commande implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idCommande")
 	private Long idCommande;
+	@Column(name = "etat")
+	private Boolean etat;
 	@Column(name = "dateCommande")
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;

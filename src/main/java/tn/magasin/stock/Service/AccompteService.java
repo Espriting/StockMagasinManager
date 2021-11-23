@@ -1,18 +1,25 @@
 package tn.magasin.stock.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import tn.magasin.stock.IService.IAccompteService;
 import tn.magasin.stock.Repository.AccompteRepository;
+import tn.magasin.stock.Repository.UserRepository;
 import tn.magasin.stock.entity.Accompte;
+import tn.magasin.stock.entity.Facture;
+import tn.magasin.stock.entity.User;
 
 @Service
 public class AccompteService implements IAccompteService {
     public final AccompteRepository accompteRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     public AccompteService(AccompteRepository accompteRepository) {
@@ -46,4 +53,5 @@ public class AccompteService implements IAccompteService {
 
         return accompteRepository.findById(Id);
     }
+
 }

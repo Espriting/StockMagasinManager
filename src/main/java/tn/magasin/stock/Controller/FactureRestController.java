@@ -5,8 +5,13 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.magasin.stock.IService.IFactureService;
+import tn.magasin.stock.IService.IUserService;
+import tn.magasin.stock.Repository.UserRepository;
+import tn.magasin.stock.Service.FactureService;
 import tn.magasin.stock.entity.Facture;
+import tn.magasin.stock.entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,10 +22,11 @@ public class FactureRestController {
     @Autowired
     IFactureService factureService;
 
+
     @ApiOperation(value = "Récupérer la liste des Factures")
     @GetMapping("/retrieve-all-factures")
     @ResponseBody
-    public List<Facture> getFactures(){
+    public List<Facture> getFactures() {
         List<Facture> listFactures = factureService.retrieveALLFactures();
         return listFactures;
     }
@@ -53,4 +59,18 @@ public class FactureRestController {
     public Facture modifyFacture(@RequestBody Facture facture) {
         return factureService.updateFacture(facture);
     }
+
+    @ApiOperation(value = "Récupérer facture par client")
+    @GetMapping("/retrieve-facture{user-id}")
+    @ResponseBody
+
+        public List<Facture> retrieveFactureByClient(@PathVariable("user-id") Long id) {
+            return factureService.retrieveFactureByClient(id);
+        }
+
+
 }
+
+
+
+

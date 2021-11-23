@@ -1,24 +1,12 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
@@ -34,6 +22,9 @@ public class User implements Serializable {
 	 */
 	@OneToMany(mappedBy = "user")
 	private Set<Feedback> feedback;
+	@OneToMany(mappedBy = "user")
+	private Set<Facture> facture;
+
 	
 	
 	
@@ -164,12 +155,24 @@ public class User implements Serializable {
 		this.feedback = feedback;
 	}
 
+	public Set<Facture> getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Set<Facture> facture) {
+		this.facture = facture;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
 				+ ", email=" + email + ", password=" + password + ", categorieClient=" + categorieClient
 				+ ", profession=" + profession + ", role=" + role + "]";
 	}
+
 	
 	
 }

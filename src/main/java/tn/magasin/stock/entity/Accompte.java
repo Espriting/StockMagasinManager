@@ -1,5 +1,6 @@
 package tn.magasin.stock.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Accompte")
 public class Accompte implements Serializable{
+
 	@OneToOne
 	private Facture facture;
 	@Id

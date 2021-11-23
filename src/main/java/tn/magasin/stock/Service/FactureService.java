@@ -1,5 +1,6 @@
 package tn.magasin.stock.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import tn.magasin.stock.IService.IFactureService;
 import tn.magasin.stock.Repository.FactureRepository;
+import tn.magasin.stock.Repository.UserRepository;
 import tn.magasin.stock.entity.Facture;
+import tn.magasin.stock.entity.User;
 
 
 @Service
@@ -18,6 +21,12 @@ public  class FactureService implements IFactureService {
     public FactureService(FactureRepository factureRepository) {
         this.factureRepository = factureRepository;
     }
+    @Autowired
+    UserRepository userRepository;
+
+
+
+
     @Override
     public List<Facture> retrieveALLFactures() {
         return factureRepository.findAll();
@@ -45,4 +54,18 @@ public  class FactureService implements IFactureService {
 
         return factureRepository.findById(idFacture);
     }
-}
+    //Service Avancé
+    @Override
+    public List<Facture> retrieveFactureByClient(Long id) {
+        List<Facture> factures = new ArrayList<Facture>();
+        User u  = userRepository.findById(id).orElse(null); //retrieve factures from clients
+        u.getFacture().forEach(facture -> {            // remplir une liste avec les factures de clients
+            factures.add(facture);
+        });
+        return factures;            //retourner la liste
+    }
+    //Service avancé
+
+
+    }
+

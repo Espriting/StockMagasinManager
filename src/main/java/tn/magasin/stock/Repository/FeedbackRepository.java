@@ -1,11 +1,13 @@
 package tn.magasin.stock.Repository;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -29,4 +31,11 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 	
 	@Query("SELECT f FROM Feedback f WHERE f.idFeedback = :idFeedback ")
 	Optional<Feedback> findFeedbackById(@Param("idFeedback") long idFeedback);
+	
+
+	@Transactional
+	@Modifying
+	@Query(value = "UPDATE user SET categorieclient = 'Blocked' WHERE (id IN (SELECT user_id FROM `feedback` WHERE (commentaire LIKE \\\"%ban%\\\") OR (commentaire LIKE \\\"%ban1\\\"))) AND role='CLIENT'" , nativeQuery = true)
+	void banAccount(); 
+	
 }

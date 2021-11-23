@@ -97,6 +97,11 @@ public class FeedbackRestController {
 		long dislikes = fs.nbrDislikes(idProduit);
 		return dislikes;
 	}
+	
+	@PutMapping("/ban")
+	public void banAccountC() {
+		fs.banAccount();
+	}
 
 	
 }

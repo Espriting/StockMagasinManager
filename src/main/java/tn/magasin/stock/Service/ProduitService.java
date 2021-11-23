@@ -1,6 +1,8 @@
 package tn.magasin.stock.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
@@ -56,16 +58,16 @@ public class ProduitService implements IProduitService{
 	}
 
     @Override
-	public Produit updateProduct(@PathVariable(value = "idProduit") Long idProduit, @Valid @RequestBody Produit p) {
-    	Produit p1 = retrieveProduct(idProduit);
+	public Produit updateProduct(@Valid @RequestBody Produit p) {
+    	//Produit p1 = retrieveProduct(idProduit);
 		
-    	p1.setCode(p.getCode()); 
-    	p1.setLibelle(p.getLibelle());
-    	p1.setPrixUnitaire(p.getPrixUnitaire());
-    	p1.setCategorieProduit(p.getCategorieProduit());
+    	//p1.setCode(p.getCode()); 
+    	//p1.setLibelle(p.getLibelle());
+    	//p1.setPrixUnitaire(p.getPrixUnitaire());
+    	//p1.setCategorieProduit(p.getCategorieProduit());
     	
     			
-		return produitRepository.save(p1);
+		return produitRepository.save(p);
 	}
 
     @Override
@@ -74,4 +76,25 @@ public class ProduitService implements IProduitService{
     	l.info("Produit: "+ p);
     	return p ;
 	}
+
+	@Override
+	public List statCategorieProduit() {
+		List m1 = produitRepository.statCategorieProduit();
+		//for(Map.Entry mapEntry : m1.entrySet()) {
+		//	l.info("Map: "+ mapEntry);
+		//}
+		return m1;
+	}
+	
+	@Override
+	public List BestSellerProduct() {
+		return produitRepository.BestSellerProduct();
+	}
+	
+	@Override
+	public List MostLikedProduct() {
+		return produitRepository.MostLikedProducts();
+	}
+    
+    
 }

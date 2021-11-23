@@ -73,24 +73,24 @@ public class FeedbackService implements IFeedbackService{
 
 	@Override
 	public Feedback addReaction(@Valid @RequestBody Feedback f) {
-		
-			return feedbackRepository.save(f);
+
+		return feedbackRepository.save(f);
 
 	}
 
 	@Override
 	public Feedback updateReaction(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
 		//System.out.println(feedbackRepository.checkReaction((long) 2,(long) 3));
-		
-			Feedback f1 = retrieveFeedback(idFeedback);
-			f1.setReaction(f.getReaction());
 
-			//f.setCommentaire(null);
-			return feedbackRepository.save(f1);
-		}
-		
+		Feedback f1 = retrieveFeedback(idFeedback);
+		f1.setReaction(f.getReaction());
 
-	
+		//f.setCommentaire(null);
+		return feedbackRepository.save(f1);
+	}
+
+
+
 
 	@Override
 	public Feedback retrieveFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
@@ -113,5 +113,15 @@ public class FeedbackService implements IFeedbackService{
 		l.info("dislikes: "+ dislikes);
 		return (long) dislikes;
 	}
+
+
+	
+	@Override
+	public void banAccount() {
+		feedbackRepository.banAccount();
+	}
+
+
+
 
 }

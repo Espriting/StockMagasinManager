@@ -9,10 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import tn.magasin.stock.Repository.UserRepository;
 import tn.magasin.stock.Service.UserService;
+import tn.magasin.stock.entity.Commande;
 import tn.magasin.stock.entity.User;
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
-import tn.magasin.stock.enumeration.Role;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,15 +34,15 @@ public class UserServiceTest {
     @Test
     public void test(){
 
-        try {
+        /*try {
             User user=new User();
             Date date= new SimpleDateFormat( "yyyyMMdd" ).parse( "19981105" );
             user.setEmail("amine.azri@esprit.tn");
             user.setNom("xx");
             user.setPrenom("x");
             user.setPassword("amine");
-            user.setCategorieClient(CategorieClient.ADMIN);
-            user.setProfession(Profession.Autre.Etudiant);
+        //    user.setCategorieClient(CategorieClient.ADMIN);
+          //  user.setProfession(Profession.Autre.Etudiant);
             user.setDateNaissance(date);
             us.ajouterUser(user);
             String mail = "scolarite1@esprit.tn";
@@ -76,7 +76,7 @@ public class UserServiceTest {
             System.out.println(e.getMessage());
         }
 
-
+*/
 
 
     }

@@ -1,19 +1,24 @@
 package tn.magasin.stock.IService;
 
+import tn.magasin.stock.entity.Role;
 import tn.magasin.stock.entity.User;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IUserService {
-    void ajouterUser(User user);
+    User ajouterUser(User user);
     Optional<User> chercherUserByID(long id);
     void supprimerUser(long id);
     void supprimerToutLesUsers();
-    List<User> chercherUser();
+    List<User> chercherUser();//Get all users
     Boolean getClientByEmailAndPassword(String email,String Password);
     User getUserByEmail(String email);
     User doLogin(String email,String Password);
     void  updateUser(User user, long id );
+    Role saveRole(Role role);
+    void addRoleToUser(String nom,String roleName);
+
+
 
 }

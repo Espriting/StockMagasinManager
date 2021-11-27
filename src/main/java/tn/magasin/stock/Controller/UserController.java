@@ -1,15 +1,21 @@
 package tn.magasin.stock.Controller;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tn.magasin.stock.Service.UserService;
+import tn.magasin.stock.entity.Role;
 import tn.magasin.stock.entity.User;
 
+import java.net.URI;
 import java.util.List;
-
+@RequiredArgsConstructor
 @RestController
 @Api(tags = "User Manager")
 @RequestMapping("/api/user")
@@ -24,10 +30,10 @@ public class UserController {
         this.us=us;
     }
 
-    @GetMapping("/getAllUsers")
+   /* @GetMapping("/getAllUsers")
     public List<User> getUsers(){
         return us.chercherUser();
-    }
+    }*/
 
     @GetMapping("/deletUser/{id}")
     @ApiOperation(value = "Delete User By Id ")
@@ -78,6 +84,31 @@ public class UserController {
         return cl;
     }
 
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getUsers(){
+        return ResponseEntity.ok().body(us.chercherUser());
+    }
 
+    @PostMapping("/users/save")
+    public ResponseEntity<User>saveUser(@RequestBody User user){
+        URI uri=URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
+        return ResponseEntity.created(uri).body(us.ajouterUser(user));
+    }
 
+    @PostMapping("/role/save")
+    public ResponseEntity<Role>saveRole(@RequestBody Role role){
+        URI uri=URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
+        return ResponseEntity.created(uri).body(us.saveRole(role));
+    }
+    @PostMapping("/role/addtouser")
+    public ResponseEntity<?>addRoleToUser(@RequestBody RoleToUserForm form){
+         us.addRoleToUser(form.getNom(),form.getRoleName());
+        return   ResponseEntity.ok().build();
+    }
+
+}
+@Data
+class RoleToUserForm{
+    private String nom;
+    private String roleName;
 }

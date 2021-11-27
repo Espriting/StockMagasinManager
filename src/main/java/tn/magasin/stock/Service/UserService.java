@@ -11,38 +11,68 @@ import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
-    public final UserRepository userRepository;
     @Autowired
+    public  UserRepository userRepository;
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    @Override
+    public void ajouterUser(User user) {
+        userRepository.save(user);
+    }
 
     @Override
-    public List<User> retrieveAllUser() {
+    public Optional<User> chercherUserByID(long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public void supprimerUser(long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public void supprimerToutLesUsers() {
+        userRepository.deleteAll();
+    }
+
+    @Override
+    public List<User> chercherUser() {
         return userRepository.findAll();
     }
 
     @Override
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public Boolean getClientByEmailAndPassword(String email, String Password) {
+        if(userRepository.getUserByEmailAndPassword(email,Password)!=null) return true;
+        return false;
     }
 
     @Override
-    public void deleteUserById(Long Id) {
-        userRepository.deleteById(Id);
-    }
-
-
-    @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
     }
 
     @Override
-    public Optional<User> retrieveUser(Long Id) {
+    public User doLogin(String email, String Password) {
+        return userRepository.getUserByEmailAndPassword(email,Password);
+    }
 
+    @Override
+    public void updateUser(User user, long id) {
+        User cl=userRepository.findById(id).get();
 
-        return userRepository.findById(Id);
+        if(user.getDateNaissance()!=null) cl.setDateNaissance(user.getDateNaissance());
+
+        if(user.getProfession()!=null)cl.setProfession(user.getProfession());
+
+        if(user.getPassword()!=null)cl.setPassword(user.getPassword());
+
+        if(user.getEmail()!=null)cl.setEmail(user.getEmail());
+
+        if(user.getCategorieClient()!=null)cl.setCategorieClient(user.getCategorieClient());
+
+        userRepository.save(cl);
     }
 }

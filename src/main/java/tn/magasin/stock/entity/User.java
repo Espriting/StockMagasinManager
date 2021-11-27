@@ -58,12 +58,11 @@ public class User implements Serializable {
 	@Column(name = "profession")
 	@Enumerated(EnumType.STRING)
 	private Profession profession;
-	@Enumerated(EnumType.STRING)
-	private Role role;
+
 
 	
 	
-	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
+	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -72,7 +71,6 @@ public class User implements Serializable {
 		this.password = password;
 		this.categorieClient = categorieClient;
 		this.profession = profession;
-		this.role = role;
 	}
 
 	public User() {
@@ -147,13 +145,7 @@ public class User implements Serializable {
 		this.profession = profession;
 	}
 
-	public Role getRole() {
-		return role;
-	}
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
 
 	public Set<Feedback> getFeedback() {
 		return feedback;
@@ -167,7 +159,7 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
 				+ ", email=" + email + ", password=" + password + ", categorieClient=" + categorieClient
-				+ ", profession=" + profession + ", role=" + role + "]";
+				+ ", profession=" + profession + "]";
 	}
 	
 	

@@ -1,6 +1,5 @@
 package tn.magasin.stock.enumeration;
 
 public enum CategorieClient {
-	Fidele,Ordinaire,Premium
-
+	CLIENT,ADMIN,LIVREUR,Ordinaire;
 }

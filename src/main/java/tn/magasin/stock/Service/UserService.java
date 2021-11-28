@@ -97,13 +97,10 @@ public class UserService implements IUserService, UserDetailsService {
 
         if (user.getDateNaissance() != null) cl.setDateNaissance(user.getDateNaissance());
 
-        // if(user.getProfession()!=null)cl.setProfession(user.getProfession());
-
         if (user.getPassword() != null) cl.setPassword(user.getPassword());
 
         if (user.getEmail() != null) cl.setEmail(user.getEmail());
 
-        //  if(user.getCategorieClient()!=null)cl.setCategorieClient(user.getCategorieClient());
 
         userRepository.save(cl);
     }

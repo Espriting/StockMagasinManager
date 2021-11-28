@@ -29,5 +29,6 @@ build/
 !**/src/main/**/build/
 !**/src/test/**
 !src/main/resources/application.properties
+!c:/**
 ### VS Code ###
 .vscode/

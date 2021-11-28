@@ -11,12 +11,12 @@ public interface IProduitService {
 	
 	List<Produit> retrieveAllProducts();
 
-	Produit addProduct(Produit p);
+	Produit addProduct(Produit p) ;
 
 	void deleteProduct(Long idProduit);
 
 	Produit updateProduct(Produit p);
-
+	
 	Produit retrieveProduct(Long idProduit);
 	
 	List statCategorieProduit();

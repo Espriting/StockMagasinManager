@@ -49,6 +49,7 @@ public class ProduitService implements IProduitService{
 
     @Override
 	public Produit addProduct(@Valid @RequestBody Produit c) {
+    	
 		return produitRepository.save(c);
 	}
 
@@ -58,15 +59,8 @@ public class ProduitService implements IProduitService{
 	}
 
     @Override
-	public Produit updateProduct(@Valid @RequestBody Produit p) {
-    	//Produit p1 = retrieveProduct(idProduit);
+	public Produit updateProduct(Produit p) {
 		
-    	//p1.setCode(p.getCode()); 
-    	//p1.setLibelle(p.getLibelle());
-    	//p1.setPrixUnitaire(p.getPrixUnitaire());
-    	//p1.setCategorieProduit(p.getCategorieProduit());
-    	
-    			
 		return produitRepository.save(p);
 	}
 
@@ -95,6 +89,8 @@ public class ProduitService implements IProduitService{
 	public List MostLikedProduct() {
 		return produitRepository.MostLikedProducts();
 	}
+	
+	
     
     
 }

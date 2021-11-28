@@ -47,7 +47,7 @@ public class ProduitRestController {
 	}
 
 	@PutMapping("/update")
-	public Produit updateProduit( @RequestBody Produit p) {
+	public Produit updateProduit(@RequestBody Produit p) {
     	return ps.updateProduct(p);	
 		
 	}

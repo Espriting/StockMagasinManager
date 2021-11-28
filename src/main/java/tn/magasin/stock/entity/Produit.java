@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -17,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -82,6 +85,13 @@ public class Produit implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private CategorieProduit categorieProduit;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dateCreation")
+	private Date dateCreation;
+	
+	@Column(name = "picture")
+	private String picture;
+	
 	
 	
 	
@@ -116,6 +126,17 @@ public class Produit implements Serializable{
 	public Produit(Long idProduit) {
 		super();
 		this.idProduit = idProduit;
+	}
+
+	public Produit(String code, String libelle, float prixUnitaire, CategorieProduit categorieProduit,
+			Date dateCreation, String picture) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.prixUnitaire = prixUnitaire;
+		this.categorieProduit = categorieProduit;
+		this.dateCreation = dateCreation;
+		this.picture = picture;
 	}
 
 	

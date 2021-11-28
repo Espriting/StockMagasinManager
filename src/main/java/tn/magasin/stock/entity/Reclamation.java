@@ -15,20 +15,15 @@ import javax.persistence.Table;
 public class Reclamation implements Serializable{
 	@ManyToMany
 	private Set<User> users;
-	public Set<User> getUsers() {
-		return users;
-	}
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idReclamation")
 	private Long idReclamation;
 	@Column(name="objet")
-private String objet; 
+	private String objet; 
 	@Column(name="description")
-private String description;
+	private String description;
 	public Reclamation() {
 		super();
 	}
@@ -57,5 +52,11 @@ private String description;
 		this.description = description;
 	}
 
-	
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
 }

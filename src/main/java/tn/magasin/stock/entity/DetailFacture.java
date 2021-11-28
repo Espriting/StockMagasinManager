@@ -1,6 +1,7 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,7 +22,7 @@ public class DetailFacture implements Serializable {
 	 */
 	@ManyToOne
 	private Facture factures;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "detailFacture")
+	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Produit> produits;
 	
 	private static final long serialVersionUID = 1L;
@@ -29,6 +30,23 @@ public class DetailFacture implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idDetailFacture")
 	private Long idDetailFacture;
+
+	public Facture getFactures() {
+		return factures;
+	}
+
+	public void setFactures(Facture factures) {
+		this.factures = factures;
+	}
+
+	public Set<Produit> getProduits() {
+		return produits;
+	}
+
+	public void setProduits(Set<Produit> produits) {
+		this.produits = produits;
+	}
+
 	@Column(name = "qte")
 	private int qte;
 	@Column(name = "prixTotal")
@@ -37,6 +55,14 @@ public class DetailFacture implements Serializable {
 	private int pourcentageRemise;
 	@Column(name = "montantRemise")
 	private float montantRemise;
+	
+	
+	
+	
+	@ManyToOne
+	Facture facture;
+	
+	
 	
 	public DetailFacture(Long idDetailFacture, int qte, float prixTotal, int pourcentageRemise, float montantRemise) {
 		super();

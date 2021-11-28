@@ -1,36 +1,33 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
 import tn.magasin.stock.enumeration.Role;
 
+
 @Entity
 @Table(name="User")
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private Set<Feedback> feedback;
+	@OneToMany(mappedBy = "user")
+	private Set<Facture> facture;
+
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +53,8 @@ public class User implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
+	
+	
 	public User(Long id, String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
 		this.id = id;
 		this.nom = nom;
@@ -71,15 +70,9 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String nom, String prenom, Date dateNaissance, String email, String password, CategorieClient categorieClient, Profession profession, Role role) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.dateNaissance = dateNaissance;
-		this.email = email;
-		this.password = password;
-		this.categorieClient = categorieClient;
-		this.profession = profession;
-		this.role = role;
+	public User(Long id) {
+		super();
+		this.id = id;
 	}
 
 	public Long getId() {
@@ -154,18 +147,32 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
+	public Set<Feedback> getFeedback() {
+		return feedback;
+	}
+
+	public void setFeedback(Set<Feedback> feedback) {
+		this.feedback = feedback;
+	}
+
+	public Set<Facture> getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Set<Facture> facture) {
+		this.facture = facture;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", nom='" + nom + '\'' +
-				", prenom='" + prenom + '\'' +
-				", dateNaissance=" + dateNaissance +
-				", email='" + email + '\'' +
-				", password='" + password + '\'' +
-				", categorieClient=" + categorieClient +
-				", profession=" + profession +
-				", role=" + role +
-				'}';
+		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+				+ ", email=" + email + ", password=" + password + ", categorieClient=" + categorieClient
+				+ ", profession=" + profession + ", role=" + role + "]";
 	}
+
+	
+	
 }

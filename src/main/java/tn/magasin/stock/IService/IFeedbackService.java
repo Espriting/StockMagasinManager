@@ -25,5 +25,7 @@ public interface IFeedbackService {
 	long nbrLikes(long idProduit);
 	
 	long nbrDislikes(long idProduit);
+	
+	void banAccount(); 
 
 }

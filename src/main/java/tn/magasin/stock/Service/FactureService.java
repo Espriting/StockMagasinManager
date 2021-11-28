@@ -31,7 +31,7 @@ public  class FactureService implements IFactureService {
     public List<Facture> retrieveALLFactures() {
         return factureRepository.findAll();
     }
-    @Override 
+    @Override
     public Facture addFacture (Facture facture) {
         return factureRepository.save(facture);
     }
@@ -42,7 +42,7 @@ public  class FactureService implements IFactureService {
     }
 
 
-   
+
     @Override
     public Facture updateFacture (Facture facture) {
         return factureRepository.save(facture);

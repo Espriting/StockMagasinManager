@@ -68,7 +68,6 @@ public class FactureRestController {
             return factureService.retrieveFactureByClient(id);
         }
 
-
 }
 
 

@@ -32,21 +32,27 @@ public class RayonService implements IRayonService {
 
     @Override
     public void deleteRayonById(Long Id) {
-
+            rayonRepository.deleteById(Id);
     }
 
     @Override
-    public Boolean deleteRayonByObject(Rayon rayon) {
-        return null;
+    public void deleteRayonByObject(Rayon rayon) {
+
+        rayonRepository.delete(rayon);
+
     }
 
     @Override
     public Rayon updateRayon(Rayon rayon) {
-        return null;
+        return rayonRepository.saveAndFlush(rayon);
     }
 
     @Override
-    public Optional<Rayon> retrieveRayon(Long Id) {
-        return Optional.empty();
+    public Rayon retrieveRayon(Long Id) {
+        Optional<Rayon> rayon= rayonRepository.findById(Id);
+        if (rayon.isPresent()){
+            return rayon.get();
+        }else return new Rayon();
+
     }
 }

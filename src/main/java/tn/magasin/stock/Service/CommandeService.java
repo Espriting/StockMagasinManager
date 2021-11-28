@@ -35,8 +35,8 @@ public class CommandeService implements ICommandeService {
 
 
     @Override
-    public Commande updateCommande(Commande commande) {
-        return commandeRepository.save(commande);
+    public Commande updateCommande(Commande commandeUp) {
+        return commandeRepository.save(commandeUp);
     }
 
     @Override
@@ -49,6 +49,10 @@ public class CommandeService implements ICommandeService {
     public Optional<Commande> retrieveCommandeByFacture(Long Id) {
 
         return commandeRepository.FindByFactures(Id);
+    }
+    @Override
+    public Optional<Commande> retrieveCommandeByClient(Long Id) {
+        return commandeRepository.FindCommandeByClient(Id);
     }
 
 }

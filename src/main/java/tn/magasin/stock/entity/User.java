@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.Profession;
 import tn.magasin.stock.enumeration.Role;
@@ -28,9 +30,7 @@ import tn.magasin.stock.enumeration.Role;
 @Table(name="User")
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private Set<Feedback> feedback;
 	

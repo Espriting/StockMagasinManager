@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -17,8 +18,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,29 +41,33 @@ import tn.magasin.stock.enumeration.CategorieProduit;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 
 
 
 public class Produit implements Serializable{
-	/**
-	 * 
-	 */
+	
+	@JsonIgnore
 	@ManyToOne
 	@ToString.Exclude private Stock stock;
 	
+	@JsonIgnore
 	@ManyToMany( cascade = CascadeType.ALL)
 	@ToString.Exclude private Set<Fournisseur> fournisseurs;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-
 	@ToString.Exclude private Rayon rayon;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ToString.Exclude private DetailFacture detailFacture;
 	
+	@JsonIgnore
 	@OneToOne
 	@ToString.Exclude private DetailProduit detailProduit;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
 	@ToString.Exclude private Set<Feedback> feedback; 
 	
@@ -74,6 +84,13 @@ public class Produit implements Serializable{
 	private float prixUnitaire;
 	@Enumerated(EnumType.STRING)
 	private CategorieProduit categorieProduit;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dateCreation")
+	private Date dateCreation;
+	
+	@Column(name = "picture")
+	private String picture;
 	
 	
 	
@@ -109,6 +126,17 @@ public class Produit implements Serializable{
 	public Produit(Long idProduit) {
 		super();
 		this.idProduit = idProduit;
+	}
+
+	public Produit(String code, String libelle, float prixUnitaire, CategorieProduit categorieProduit,
+			Date dateCreation, String picture) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.prixUnitaire = prixUnitaire;
+		this.categorieProduit = categorieProduit;
+		this.dateCreation = dateCreation;
+		this.picture = picture;
 	}
 
 	

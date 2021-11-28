@@ -1,11 +1,15 @@
 package tn.magasin.stock.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -54,24 +58,139 @@ class FeedbackServiceTest {
 		assertThat(f).isEqualTo(f1);
 	}
 
-
 	@Test
-	void addReactionTest() {
+	void addReactionTest() throws NoSuchElementException {
 
-		Feedback f = new Feedback("Like",new User(20L),new Produit(10L));
+		Feedback f = new Feedback();
+		f.setIdFeedback(50L);
+		f.setReaction("Like");
+		f.setProduit(new Produit(50L));
+		f.setUser(new User(50L));
 
-		Mockito.when(feedbackRepository.save(f)).thenReturn(f);
-		
-		Feedback f2 = fs.addReaction(f);
-		
-		l.info("f="+f);
-		l.info("f2="+f2);
-		
-		assertThat(f).isEqualTo(f2);
+		List<Feedback> list = new ArrayList<>();
+		list.add(f);
+		List<Feedback> fergha = new ArrayList<>();
+		Mockito.when(feedbackRepository.checkReaction((long) 50,(long) 50)).thenReturn(list);
+		if((feedbackRepository.checkReaction((long) 50,(long) 50)).isEmpty()) {
+			System.out.println("if");
+
+			Mockito.when(feedbackRepository.save(f)).thenReturn(f) ;
+			Feedback f1 = fs.addReaction(f);
+			assertThat(f).isEqualTo(f1);
+
+			l.info(f.toString());
+
+		}else {
+			System.out.println("else");
+			Feedback newf = new Feedback();
+			newf.setIdFeedback(f.getIdFeedback());
+			newf.setReaction("Dislike");
+			newf.setProduit(new Produit(50L));
+			newf.setUser(new User(50L));
+			Mockito.when(feedbackRepository.findById(f.getIdFeedback())).thenReturn(Optional.of(f)); 
+			fs.updateReaction(f.getIdFeedback() ,newf);
+			assertEquals(f.getIdFeedback(), newf.getIdFeedback());
+			assertEquals(f.getReaction(), newf.getReaction());
+			assertEquals(f.getProduit().getIdProduit(), newf.getProduit().getIdProduit());
+			assertEquals(f.getUser().getId(), newf.getUser().getId());
+
+			l.info(newf.toString());
+		}
+
+	}
+
+	@Test 
+	void deleteFeedbackTest() {
+		Feedback f = new Feedback();
+		f.setIdFeedback(50L);
+		f.setCommentaire("cmnt");
+		f.setReaction("like");
+		f.setProduit(new Produit(50L));
+		f.setUser(new User(50L));
+		Mockito.when(feedbackRepository.findById(f.getIdFeedback())).thenReturn(null);
+		fs.deleteFeedback(f.getIdFeedback());
+		assertThat(feedbackRepository.findById(f.getIdFeedback())).isEqualTo(null);
+		l.info("Produit suprime!!");
 	}
 
 
+	@Test
+	void nbrLikesTest() {
+		Feedback f = new Feedback();
+		f.setIdFeedback(50L);
+		f.setReaction("Like");
+		f.setProduit(new Produit(50L));
+		f.setUser(new User(50L));
 
+		Feedback f1 = new Feedback();
+		f1.setIdFeedback(50L);
+		f1.setReaction("Like");
+		f1.setProduit(new Produit(50L));
+		f1.setUser(new User(51L));
+		Mockito.when(feedbackRepository.nbrLikes(f.getProduit().getIdProduit())).thenReturn(2L);
+		long nbrLike = fs.nbrLikes(f.getProduit().getIdProduit());
+		assertThat(feedbackRepository.nbrLikes(f.getProduit().getIdProduit())).isEqualTo(nbrLike);
+		l.info(""+nbrLike);
+	}
+
+	@Test
+	void nbrDislLikesTest() {
+		Feedback f = new Feedback();
+		f.setIdFeedback(50L);
+		f.setReaction("Dislike");
+		f.setProduit(new Produit(50L));
+		f.setUser(new User(50L));
+
+		Feedback f1 = new Feedback();
+		f1.setIdFeedback(50L);
+		f1.setReaction("Dislike");
+		f1.setProduit(new Produit(50L));
+		f1.setUser(new User(51L));
+		Mockito.when(feedbackRepository.nbrDislikes(f.getProduit().getIdProduit())).thenReturn(2L);
+		long nbrDislike = fs.nbrDislikes(f.getProduit().getIdProduit());
+		l.info(""+nbrDislike);
+	}
+
+	@Test 
+	void retrieveAllFeedbacksTest() {
+		//fs.retrieveAllFeedback((long) 1);
+		List<Feedback> feedbacks = new ArrayList<>();
+		feedbacks.add(new Feedback(new Produit(50L)));
+		feedbacks.add(new Feedback(new Produit(50L)));
+		feedbacks.add(new Feedback(new Produit(50L)));
+		feedbacks.add(new Feedback(new Produit(51L)));
+
+		List<Feedback> subFeedbacks = feedbacks.subList(0, 3);
+		System.out.println(subFeedbacks.size());
+		Mockito.when(feedbackRepository.findAllByIdProduit(50L)).thenReturn(subFeedbacks);
+		List<Feedback> expected = fs.retrieveAllFeedbacks(50L);
+		assertEquals(expected, subFeedbacks);
+		assertEquals(3, subFeedbacks.size());
+	}
+
+
+	@Test
+	void UpdateCommentTest() { 
+		Feedback f = new Feedback();
+		f.setIdFeedback(50L);
+		f.setCommentaire("comment");;
+		f.setProduit(new Produit(50L));
+		f.setUser(new User(50L));
+
+		Feedback newf = new Feedback();
+		newf.setIdFeedback(f.getIdFeedback());
+		newf.setCommentaire("NEWcomment");;
+		newf.setProduit(new Produit(50L));
+		newf.setUser(new User(50L));
+		Mockito.when(feedbackRepository.findById(f.getIdFeedback())).thenReturn(Optional.of(f)); 
+		fs.updateComment(f.getIdFeedback() ,newf); 
+		assertEquals(f.getIdFeedback(), newf.getIdFeedback());
+		assertEquals(f.getCommentaire(), newf.getCommentaire());
+		assertEquals(f.getProduit().getIdProduit(), newf.getProduit().getIdProduit());
+		assertEquals(f.getUser().getId(), newf.getUser().getId());
+
+		l.info("Updated Feedback: " + newf.toString());
+	}
 
 
 

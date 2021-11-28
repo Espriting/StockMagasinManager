@@ -20,5 +20,5 @@ public interface IUserService {
     void addRoleToUser(String nom,String roleName);
 
 
-
+    User getUserById(Long id);
 }

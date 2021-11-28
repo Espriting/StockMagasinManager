@@ -1,4 +1,4 @@
-package tn.magasin.stock.Config;
+package tn.magasin.stock.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,7 @@ public class SwaggerUser {
                 .apis(RequestHandlerSelectors.basePackage("tn.magasin.stock"))
                 .paths(PathSelectors.any())
                 .build();
+
     }
     private ApiInfo apiInfo () {
         return new ApiInfoBuilder()

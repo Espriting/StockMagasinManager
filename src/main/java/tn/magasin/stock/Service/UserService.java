@@ -121,5 +121,10 @@ public class UserService implements IUserService, UserDetailsService {
         user.getRoles().add(role);
     }
 
+    @Override
+    public User getUserById(Long id) {
+        return userRepository.getUserById(id);
+    }
+
 
 }

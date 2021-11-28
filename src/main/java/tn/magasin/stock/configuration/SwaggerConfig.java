@@ -1,4 +1,4 @@
-package tn.magasin.stock.configuration;
+package tn.magasin.stock.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

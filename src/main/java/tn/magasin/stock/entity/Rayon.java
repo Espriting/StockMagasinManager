@@ -1,7 +1,6 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,7 +12,21 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Table(name="Rayon")
 public class Rayon implements Serializable{
 	/**
@@ -31,41 +44,4 @@ public class Rayon implements Serializable{
 	@Column(name = "libelle")
 	private String libelle;
 	
-	
-	
-	
-	public Rayon(Long idRayon, String code, String libelle) {
-		super();
-		this.idRayon = idRayon;
-		this.code = code;
-		this.libelle = libelle;
-	}
-	public Rayon(String code, String libelle) {
-		super();
-		this.code = code;
-		this.libelle = libelle;
-	}
-	public Rayon() {
-		super();
-	}
-	public Long getIdRayon() {
-		return idRayon;
-	}
-	public void setIdRayon(Long idRayon) {
-		this.idRayon = idRayon;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	
-
 }

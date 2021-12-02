@@ -25,6 +25,7 @@ import tn.magasin.stock.Repository.FeedbackRepository;
 import tn.magasin.stock.Repository.ProduitRepository;
 import tn.magasin.stock.entity.Feedback;
 import tn.magasin.stock.entity.Produit;
+import tn.magasin.stock.entity.User;
 
 @Service
 public class FeedbackService implements IFeedbackService{
@@ -49,7 +50,9 @@ public class FeedbackService implements IFeedbackService{
 
 	@Override
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Feedback addComment(@Valid @RequestBody Feedback c) {
+	public Feedback addComment(@Valid @RequestBody Feedback c, long idProduit, long idUser) {
+		c.setProduit(new Produit(idProduit));
+		c.setUser(new User(idUser));
 		return feedbackRepository.save(c);
 	}
 
@@ -72,8 +75,11 @@ public class FeedbackService implements IFeedbackService{
 
 
 	@Override
-	public Feedback addReaction(@Valid @RequestBody Feedback f) {
-
+	public Feedback addReaction(@Valid @RequestBody Feedback f, long idProduit, long idUser) {
+		
+		f.setProduit(new Produit(idProduit));
+		f.setUser(new User(idUser));
+		
 		return feedbackRepository.save(f);
 
 	}
@@ -119,6 +125,13 @@ public class FeedbackService implements IFeedbackService{
 	@Override
 	public void banAccount() {
 		feedbackRepository.banAccount();
+	}
+
+
+	@Override
+	public List<Feedback> retreiveComments(Long idProduit) {
+		
+		return feedbackRepository.getAllComments(idProduit);
 	}
 
 

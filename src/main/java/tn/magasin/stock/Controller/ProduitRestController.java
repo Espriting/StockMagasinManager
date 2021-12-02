@@ -24,8 +24,9 @@ import tn.magasin.stock.Service.ProduitService;
 import tn.magasin.stock.entity.Produit;
 import tn.magasin.stock.enumeration.CategorieProduit;
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/produit")
 public class ProduitRestController {
 

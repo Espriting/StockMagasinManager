@@ -20,6 +20,10 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 	@Query("SELECT f  FROM Feedback f WHERE f.produit.idProduit = :idProduit ")
 	List<Feedback> findAllByIdProduit(@Param("idProduit") long idProduit);
 	
+	@Query(value="SELECT *  FROM Feedback f WHERE f.produit_id_produit = :idProduit AND commentaire IS NOT NULL",
+			nativeQuery = true)
+	List<Feedback> getAllComments(@Param("idProduit") long idProduit);
+	
 	@Query("SELECT f FROM Feedback f WHERE f.user.id = :id AND f.produit.idProduit = :idProduit AND (f.reaction='Like' OR f.reaction='Dislike') ")
 	List<Feedback> checkReaction(@Param("id") long id, @Param("idProduit") long idProduit);
 	

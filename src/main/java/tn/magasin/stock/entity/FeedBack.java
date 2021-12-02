@@ -10,32 +10,108 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import tn.magasin.stock.enumeration.CategorieProduit;
+
 @Entity
-@Table(name = "FeedBack")
-public class FeedBack  implements Serializable{
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<User> users;
-	public Set<User> getUsers() {
-		return users;
-	}
+@Table(name = "Feedback")
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 
+
+public class Feedback  implements Serializable{
+	@ManyToOne
+	private User user;
+	@ManyToOne
+	private Produit produit;
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idFeedBack")
-	private Long idFeedBack;
+	@Column(name = "idFeedback")
+	private Long idFeedback;
 	@Column(name = "commentaire")
 	private String commentaire;
-	@Column(name = "upLike")
-	private String upLike;
-	@Column(name = "downdLike")
-	private String downLike;
+	@Column(name = "reaction")
+	private String reaction;
 
-	
+
+
+
+
+
+
+	public Feedback(User user, Produit produit, String commentaire) {
+		super();
+		this.user = user;
+		this.produit = produit;
+		this.commentaire = commentaire;
+	}
+
+
+
+	public Feedback(User user, Produit produit, String commentaire, String reaction) {
+		super();
+		this.user = user;
+		this.produit = produit;
+		this.commentaire = commentaire;
+		this.reaction = reaction;
+	}
+
+
+
+	public Feedback(Long idFeedback,User user, Produit produit,  String commentaire) {
+		super();
+		this.idFeedback = idFeedback;
+		this.user = user;
+		this.produit = produit;
+
+		this.commentaire = commentaire;
+	}
+
+
+
+	public Feedback(String reaction, User user, Produit produit) {
+		super();
+		this.reaction = reaction;
+		this.user = user;
+		this.produit = produit;
+
+	}
+
+
+
+	public Feedback(Long idFeedback) {
+		super();
+		this.idFeedback = idFeedback;
+	}
+
+
+
+	public Feedback(Produit produit) {
+		super();
+		this.produit = produit;
+	}
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -41,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/api/user/**");
+        http.authorizeRequests().antMatchers("**");
+        http.authorizeRequests().antMatchers("/feedback/**");
         http.authorizeRequests().antMatchers("/swagger-ui/**").permitAll();
         http.authorizeRequests().antMatchers(GET, "/api/user/users");
         // http.authorizeRequests().antMatchers(POST, "/api/user/users");

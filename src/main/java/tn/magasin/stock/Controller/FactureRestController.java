@@ -41,7 +41,7 @@ public class FactureRestController {
     @ApiOperation(value = "Ajouter une facture")
     @PostMapping("/add-facture")
     @ResponseBody
-    public Facture addClient(@RequestBody Facture f) {
+    public Facture addFacture(@RequestBody Facture f) {
         Facture facture = factureService.addFacture(f);
         return facture;
     }

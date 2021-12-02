@@ -45,3 +45,5 @@ public class Rayon implements Serializable{
 	private String libelle;
 	
 }
+
+

@@ -34,8 +34,10 @@ public class UserService implements IUserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String nom) throws UsernameNotFoundException {
         User user = userRepository.findByNom(nom);
+
+
         if (user == null) {
-            log.error("User not found in the database");
+            log.error("User not found in  the database");
             throw new UsernameNotFoundException("User not found in the database");
         } else {
             log.info("User  found in the database: {}", nom);

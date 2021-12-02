@@ -18,7 +18,7 @@ public interface IFactureService {
 
     Optional<Facture> retrieveFacture(Long Id);
 
-    List<Facture> retrieveFactureByClient(Long id);
+ //   List<Facture> retrieveFactureByClient(Long id);
 
 
 

@@ -20,7 +20,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import tn.magasin.stock.Service.FactureService;
 import tn.magasin.stock.entity.Facture;
 import tn.magasin.stock.enumeration.CategorieClient;
-import tn.magasin.stock.enumeration.Profession;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

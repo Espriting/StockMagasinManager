@@ -17,5 +17,5 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
  @Query(value = "SELECT * FROM commande c , facture f where c.factures_id_facture = f.id_facture AND f.id_facture = :fact" , nativeQuery = true)
  Optional<Commande> FindByFactures(@Param("fact") Long fact);
  @Query(value = "SELECT * FROM commande C ,facture F where c.factures_id_facture = F.id_facture and F.user_id =:id " , nativeQuery = true)
- Optional<Commande> FindCommandeByClient(@Param("id") Long id);
+ List<Commande> FindCommandeByClient(@Param("id") Long id);
 }

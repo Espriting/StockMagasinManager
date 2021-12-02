@@ -79,7 +79,7 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public Boolean getClientByEmailAndPassword(String email, String Password) {
-        if (userRepository.getUserByEmailAndPassword(email, Password) != null) return true;
+        if (userRepository.getUserByEmailAndPassword(email) != null) return true;
         return false;
     }
 
@@ -90,7 +90,12 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public User doLogin(String email, String Password) {
-        return userRepository.getUserByEmailAndPassword(email, Password);
+        User user1=  userRepository.getUserByEmailAndPassword(email);
+        if(passwordEncoder.matches(Password, user1.getPassword())){
+           return userRepository.getUserByEmailAndPassword(email);
+        }else{
+            return  new User();
+        }
     }
 
     @Override

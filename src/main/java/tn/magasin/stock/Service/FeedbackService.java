@@ -30,22 +30,23 @@ import tn.magasin.stock.entity.User;
 @Service
 public class FeedbackService implements IFeedbackService{
 
-	@Autowired
-	FeedbackRepository feedbackRepository;
+    @Autowired
+    FeedbackRepository feedbackRepository;
 
-	private static final Logger l = LogManager.getLogger(ProduitService.class);
+    private static final Logger l = LogManager.getLogger(ProduitService.class);
 
 
-	@Override
-	public List<Feedback> retrieveAllFeedbacks(@PathVariable(value = "idProduit") Long idProduit) {
-		List<Feedback> feedbacks = (List<Feedback>) feedbackRepository.findAllByIdProduit(idProduit);
-		//System.out.println(feedbacks);
-		for(Feedback feedback : feedbacks) {
-			l.info("Feedback: "+ feedback);
-		}
+    @Override
+    public List<Feedback> retrieveAllFeedbacks(@PathVariable(value = "idProduit") Long idProduit) {
+        List<Feedback> feedbacks = (List<Feedback>) feedbackRepository.findAllByIdProduit(idProduit);
+        //System.out.println(feedbacks);
+        for(Feedback feedback : feedbacks) {
+            l.info("Feedback: "+ feedback);
+        }
 
-		return feedbacks;
-	}
+        return feedbacks;
+    }
+
 
 
 	@Override
@@ -57,22 +58,21 @@ public class FeedbackService implements IFeedbackService{
 	}
 
 
-	@Override
-	public void deleteFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
-		feedbackRepository.deleteById(idFeedback);
+    @Override
+    public void deleteFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
+        feedbackRepository.deleteById(idFeedback);
 
-	}
+    }
 
-	@Override
-	public Feedback updateComment(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
-		Feedback f1 = retrieveFeedback(idFeedback);
+    @Override
+    public Feedback updateComment(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
+        Feedback f1 = retrieveFeedback(idFeedback);
 
-		f1.setCommentaire(f.getCommentaire());
+        f1.setCommentaire(f.getCommentaire());
 
 
-		return feedbackRepository.save(f1);
-	}
-
+        return feedbackRepository.save(f1);
+    }
 
 	@Override
 	public Feedback addReaction(@Valid @RequestBody Feedback f, long idProduit, long idUser) {
@@ -82,57 +82,58 @@ public class FeedbackService implements IFeedbackService{
 		
 		return feedbackRepository.save(f);
 
-	}
 
-	@Override
-	public Feedback updateReaction(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
-		//System.out.println(feedbackRepository.checkReaction((long) 2,(long) 3));
+    }
 
-		Feedback f1 = retrieveFeedback(idFeedback);
-		f1.setReaction(f.getReaction());
+    @Override
+    public Feedback updateReaction(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
+        //System.out.println(feedbackRepository.checkReaction((long) 2,(long) 3));
 
-		//f.setCommentaire(null);
-		return feedbackRepository.save(f1);
-	}
+        Feedback f1 = retrieveFeedback(idFeedback);
+        f1.setReaction(f.getReaction());
 
-
-
-
-	@Override
-	public Feedback retrieveFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
-		Feedback f = feedbackRepository.findById(idFeedback).orElseThrow(() -> new NoSuchElementException(" not found for this id :: " + idFeedback)) ;
-		l.info("Feedback: "+ f);
-		return f ;
-	}
+        //f.setCommentaire(null);
+        return feedbackRepository.save(f1);
+    }
 
 
-	@Override
-	public long nbrLikes(@PathVariable(value = "idProduit") long idProduit) {
-		long likes = (long) feedbackRepository.nbrLikes(idProduit);
-		l.info("Likes: "+ likes);
-		return (long) likes;
-	}
-
-	@Override
-	public long nbrDislikes(@PathVariable(value = "idProduit") long idProduit) {
-		long dislikes = (long) feedbackRepository.nbrDislikes(idProduit);
-		l.info("dislikes: "+ dislikes);
-		return (long) dislikes;
-	}
 
 
-	
-	@Override
-	public void banAccount() {
-		feedbackRepository.banAccount();
-	}
+    @Override
+    public Feedback retrieveFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
+        Feedback f = feedbackRepository.findById(idFeedback).orElseThrow(() -> new NoSuchElementException(" not found for this id :: " + idFeedback)) ;
+        l.info("Feedback: "+ f);
+        return f ;
+    }
 
+
+    @Override
+    public long nbrLikes(@PathVariable(value = "idProduit") long idProduit) {
+        long likes = (long) feedbackRepository.nbrLikes(idProduit);
+        l.info("Likes: "+ likes);
+        return (long) likes;
+    }
+
+    @Override
+    public long nbrDislikes(@PathVariable(value = "idProduit") long idProduit) {
+        long dislikes = (long) feedbackRepository.nbrDislikes(idProduit);
+        l.info("dislikes: "+ dislikes);
+        return (long) dislikes;
+    }
+
+
+
+    @Override
+    public void banAccount() {
+        feedbackRepository.banAccount();
+    }
 
 	@Override
 	public List<Feedback> retreiveComments(Long idProduit) {
 		
 		return feedbackRepository.getAllComments(idProduit);
 	}
+
 
 
 

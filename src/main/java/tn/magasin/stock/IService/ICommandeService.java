@@ -13,5 +13,5 @@ public interface ICommandeService {
     Commande updateCommande( Commande commandeUp);
     Optional<Commande> retrieveCommande(Long Id);
     Optional<Commande> retrieveCommandeByFacture(Long Id);
-    Optional<Commande> retrieveCommandeByClient(Long Id);
+    List<Commande> retrieveCommandeByClient(Long Id);
 }

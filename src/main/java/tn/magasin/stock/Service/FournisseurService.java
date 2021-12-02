@@ -6,8 +6,10 @@ import tn.magasin.stock.Repository.FournisseurRepository;
 
 @Service
 public class FournisseurService {
-    public FournisseurRepository fournisseurRepository;
     @Autowired
+    public
+    FournisseurRepository fournisseurRepository;
+
     public FournisseurService(FournisseurRepository fournisseurRepository) {
         this.fournisseurRepository = fournisseurRepository;
     }

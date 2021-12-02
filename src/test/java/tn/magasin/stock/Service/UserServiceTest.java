@@ -1,4 +1,4 @@
-package tn.magasin.stock.Service;
+package tn.magasin.stock.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

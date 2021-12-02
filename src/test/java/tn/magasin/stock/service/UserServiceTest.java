@@ -1,81 +1,59 @@
-package tn.magasin.stock.service;
+package tn.magasin.stock.Service;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import tn.magasin.stock.Repository.FournisseurRepository;
 import tn.magasin.stock.Repository.UserRepository;
-import tn.magasin.stock.Service.UserService;
 import tn.magasin.stock.entity.User;
-import tn.magasin.stock.enumeration.CategorieClient;
+import tn.magasin.stock.enumeration.Role;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Optional;
 
-@SpringBootTest
-@Slf4j
-public class UserServiceTest {
-
+class UserServiceTest {
     @Autowired
-    private UserService us;
-
-    @MockBean
-    private UserRepository UserRepository;
+    private UserRepository underTest;
+    private static final Logger l = LogManager.getLogger(FournisseurRepository.class);
 
 
+   /* @Test
+    void retrieveAllUser() {
+        l.info(underTest.retrieveAllUser().toString());
 
+    }*/
 
     @Test
-    public void test(){
-
-        try {
-            User user=new User();
-            Date date= new SimpleDateFormat( "yyyyMMdd" ).parse( "19981105" );
-            user.setEmail("amine.azri@esprit.tn");
-            user.setNom("xx");
-            user.setPrenom("x");
-            user.setPassword("amine");
-            user.setCategorie(CategorieClient.BLOCKED);
-          //  user.setProfession(Profession.Autre.Etudiant);
-            user.setDateNaissance(date);
-            us.ajouterUser(user);
-            String mail = "scolarite1@esprit.tn";
-            String mdp = "scolarite1";
-
-
-            if(user.getEmail().equals(mail) && user.getPassword().equals(mdp)){
-                Mockito.when(UserRepository.getUserByEmailAndPassword(mail,mdp)).thenReturn(user);
-
-            }else{
-                Mockito.when(UserRepository.getUserByEmailAndPassword(user.getEmail(),user.getPassword())).thenReturn(null);
-                if (user.getEmail().equals(mail)){
-                    Mockito.when(UserRepository.getUserByEmail(user.getEmail())).thenReturn(user);
-                }
-            }
-
-            User found = us.doLogin(mail,mdp);
-
-            //assertThat(found.geteMail()).isEqualTo(d.geteMail());
-            System.out.println(user.getEmail()+" "+user.getPassword()+" ");
-
-            Optional<User> C1 = us.chercherUserByID(user.getId());
-            Assertions.assertNotNull(C1.get().getDateNaissance());
-            log.info("le nom du client d'id : "+C1.get().getId()+" est "+ C1.get().getNom());
-            log.info("le prenom du client d'id : "+C1.get().getId()+" est "+ C1.get().getPrenom());
-
-
-        }catch (Exception e){
-
-
-            System.out.println(e.getMessage());
-        }
-
-
-
-
+    void addUser() {
+        User user=new User();
+        user.setNom("monam");
+        user.setPrenom("ben gouta");
+        user.setEmail("monam.bengoua@gmail.com");
+        user.setRole(Role.ADMIN);
+        System.out.println(user.toString());
+        underTest.save(user);
+        /*if(underTest.addUser(user)==null)
+        l.warn("user is not added");
+        else l.info("user add with success");*/
     }
+/*
+    @Test
+    void deleteUserById() {
+        Long id=12l;
+        underTest.deleteUserById(id);
+
+    }*/
+
+   /* @Test
+    void updateUser() {
+        User user=new User();
+        user.setEmail("monam.bengouta@esprit.tn");
+        user.setId(1l);
+        l.info(underTest.updateUser(user));
+    }*/
+
+   /* @Test
+    void retrieveOneUser() {
+
+        l.info(underTest.userRepository.findById(1l));
+    }*/
 }

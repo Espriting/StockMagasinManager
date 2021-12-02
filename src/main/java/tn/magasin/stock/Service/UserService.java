@@ -6,8 +6,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import sun.security.util.Password;
 import tn.magasin.stock.IService.IUserService;
 import tn.magasin.stock.Repository.RoleRepository;
 import tn.magasin.stock.Repository.UserRepository;
@@ -50,7 +52,8 @@ public class UserService implements IUserService, UserDetailsService {
     @Override
     public User ajouterUser(User user) {
         log.info("Saving new user to database");
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+     //   user.setPassword(user.getPassword());
+        user.getPassword();
         return userRepository.save(user);
     }
 
@@ -88,7 +91,10 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public User doLogin(String email, String Password) {
+
+
         return userRepository.getUserByEmailAndPassword(email, Password);
+
     }
 
     @Override

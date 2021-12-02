@@ -8,7 +8,18 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import tn.magasin.stock.Service.FeedbackService;
 import tn.magasin.stock.Service.ProduitService;
@@ -21,21 +32,21 @@ import tn.magasin.stock.entity.Produit;
 @RequestMapping("/feedback")
 public class FeedbackRestController {
 
-	
+
 	@Autowired
 	FeedbackService fs;
-	
-	
+
+
 	@GetMapping("/display/{idProduit}")
 	public List<Feedback> getFeedbacks(@PathVariable(value = "idProduit") Long idProduit) {
-	List<Feedback> listFeedbacks = fs.retrieveAllFeedbacks(idProduit);
-	return listFeedbacks;
+		List<Feedback> listFeedbacks = fs.retrieveAllFeedbacks(idProduit);
+		return listFeedbacks;
 	}
-	
-	@PostMapping("/addComment")
+
+	@PostMapping("/addComment/{idProduit}/{idUser}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Feedback addCommentire(@Valid @RequestBody Feedback f) {
-		Feedback f1 = fs.addComment(f);
+	public Feedback addCommentire(@Valid @RequestBody Feedback f,@PathVariable(value = "idProduit") long idProduit,@PathVariable(value = "idUser") long idUser) {
+		Feedback f1 = fs.addComment(f,idProduit,idUser);
 		return f1;
 	}
 
@@ -46,7 +57,7 @@ public class FeedbackRestController {
 
 	}
 
-	
+
 	@PutMapping("/updateComment/{idFeedback}")
 	public Feedback updateCommentaire(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
 		Feedback f1 = fs.updateComment(idFeedback, f);
@@ -55,11 +66,11 @@ public class FeedbackRestController {
 
 
 
-	@PostMapping("/addReaction")
+	@PostMapping("/addReaction/{idProduit}/{idUser}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Feedback addReactions(@Valid @RequestBody Feedback f) {
-		Feedback f1 = fs.addReaction(f);
-			return f1;
+	public Feedback addReactions(@Valid @RequestBody Feedback f,@PathVariable(value = "idProduit") long idProduit,@PathVariable(value = "idUser") long idUser) {
+		Feedback f1 = fs.addReaction(f,idProduit,idUser);
+		return f1;
 
 	}
 
@@ -67,10 +78,10 @@ public class FeedbackRestController {
 	@PutMapping("/updateReaction/{idFeedback}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Feedback updateReactions(@PathVariable(value = "idFeedback") Long idFeedback, @Valid @RequestBody Feedback f) {
-			Feedback f1 = fs.updateReaction(idFeedback, f);
-			return f1;
-		}
-		
+		Feedback f1 = fs.updateReaction(idFeedback, f);
+		return f1;
+	}
+
 
 	@GetMapping("/search/{idFeedback}")
 	public Feedback retrieveFeedback(@PathVariable(value = "idFeedback") Long idFeedback) throws NoSuchElementException {
@@ -91,11 +102,17 @@ public class FeedbackRestController {
 		long dislikes = fs.nbrDislikes(idProduit);
 		return dislikes;
 	}
-	
+
 	@PutMapping("/ban")
 	public void banAccountC() {
 		fs.banAccount();
 	}
 
-	
+	@GetMapping("comments/{idProduit}")
+	public List<Feedback> retreiveComments(@PathVariable(value = "idProduit") Long idProduit) {
+
+		return fs.retreiveComments(idProduit);
+	}
+
+
 }

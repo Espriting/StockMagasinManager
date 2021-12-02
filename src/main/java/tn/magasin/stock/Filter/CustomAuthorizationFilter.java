@@ -28,8 +28,23 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        response.addHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, DELETE, PATCH");
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods",	"GET,HEAD,OPTIONS,POST,PUT,DELETE");
+        response.addHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers,Origin,Accept, "
+                + "X-Requested-With, Content-Type, Access-Control-Request-Method,	"
+                + "Access-Control-Request-Headers, Authorization");
+        response.addHeader("Access-Control-Expose-Headers","Authorization, Access-ControlAllow-Origin,Access-Control-Allow-Credentials ");
+
+        if (request.getMethod().equals("OPTIONS"))
+        {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
         if (request.getServletPath().equals("/login")) {
             filterChain.doFilter(request, response);
         } else {

@@ -1,22 +1,12 @@
 package tn.magasin.stock.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import tn.magasin.stock.Repository.UserRepository;
 import tn.magasin.stock.Service.UserService;
-import tn.magasin.stock.entity.Commande;
-import tn.magasin.stock.entity.User;
-import tn.magasin.stock.enumeration.CategorieClient;
-import tn.magasin.stock.enumeration.Profession;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Optional;
 
 @SpringBootTest
 @Slf4j

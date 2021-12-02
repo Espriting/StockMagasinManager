@@ -31,7 +31,7 @@ import tn.magasin.stock.Service.ProduitService;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-class ProduitServiceTest {
+class 	ProduitServiceTest {
 
 	
 private static final Logger l = LogManager.getLogger(ProduitServiceTest.class);

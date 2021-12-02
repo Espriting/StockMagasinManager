@@ -35,7 +35,7 @@ public class Feedback  implements Serializable{
 	private User user;
 	@ManyToOne
 	private Produit produit;
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,12 +45,12 @@ public class Feedback  implements Serializable{
 	private String commentaire;
 	@Column(name = "reaction")
 	private String reaction;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	public Feedback(User user, Produit produit, String commentaire) {
 		super();
@@ -76,7 +76,7 @@ public class Feedback  implements Serializable{
 		this.idFeedback = idFeedback;
 		this.user = user;
 		this.produit = produit;
-		
+
 		this.commentaire = commentaire;
 	}
 
@@ -87,17 +87,31 @@ public class Feedback  implements Serializable{
 		this.reaction = reaction;
 		this.user = user;
 		this.produit = produit;
-		
+
 	}
 
 
 
-	
+	public Feedback(Long idFeedback) {
+		super();
+		this.idFeedback = idFeedback;
+	}
 
-	
+
+
+	public Feedback(Produit produit) {
+		super();
+		this.produit = produit;
+	}
 
 
 
-	
-	
+
+
+
+
+
+
+
+
 }

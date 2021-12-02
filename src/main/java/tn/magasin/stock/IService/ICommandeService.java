@@ -10,7 +10,8 @@ public interface ICommandeService {
     List<Commande> retrieveAllCommande();
     Commande addCommande(Commande commande);
     void deleteCommandeById(Long Id);
-    Commande updateCommande(Commande commande);
+    Commande updateCommande( Commande commandeUp);
     Optional<Commande> retrieveCommande(Long Id);
     Optional<Commande> retrieveCommandeByFacture(Long Id);
+    List<Commande> retrieveCommandeByClient(Long Id);
 }

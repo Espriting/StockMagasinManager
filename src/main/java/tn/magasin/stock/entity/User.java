@@ -47,5 +47,7 @@ public class User implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<Role> roles = new ArrayList<>();
 
-
+	public User(Long id) {
+		this.id = id;
+	}
 }

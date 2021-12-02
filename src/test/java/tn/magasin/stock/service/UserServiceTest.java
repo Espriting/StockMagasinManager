@@ -1,12 +1,20 @@
 package tn.magasin.stock.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import tn.magasin.stock.Repository.UserRepository;
 import tn.magasin.stock.Service.UserService;
+import tn.magasin.stock.entity.User;
+import tn.magasin.stock.enumeration.CategorieClient;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Optional;
 
 @SpringBootTest
 @Slf4j
@@ -24,14 +32,14 @@ public class UserServiceTest {
     @Test
     public void test(){
 
-        /*try {
+        try {
             User user=new User();
             Date date= new SimpleDateFormat( "yyyyMMdd" ).parse( "19981105" );
             user.setEmail("amine.azri@esprit.tn");
             user.setNom("xx");
             user.setPrenom("x");
             user.setPassword("amine");
-        //    user.setCategorieClient(CategorieClient.ADMIN);
+            user.setCategorie(CategorieClient.BLOCKED);
           //  user.setProfession(Profession.Autre.Etudiant);
             user.setDateNaissance(date);
             us.ajouterUser(user);
@@ -66,7 +74,7 @@ public class UserServiceTest {
             System.out.println(e.getMessage());
         }
 
-*/
+
 
 
     }

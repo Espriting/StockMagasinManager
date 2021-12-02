@@ -2,6 +2,7 @@ package tn.magasin.stock.entity;
 
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +23,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import tn.magasin.stock.enumeration.CategorieClient;
 import tn.magasin.stock.enumeration.CategorieProduit;
 
 

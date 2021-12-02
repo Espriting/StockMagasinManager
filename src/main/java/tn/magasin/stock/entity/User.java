@@ -13,6 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
+import tn.magasin.stock.enumeration.CategorieClient;
 
 
 @ToString
@@ -41,7 +42,8 @@ public class User implements Serializable {
 	private Date dateNaissance;
 	private String email;
 	private String password;
-
+	@Enumerated(EnumType.ORDINAL)
+	private CategorieClient categorie;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<Role> roles = new ArrayList<>();
 

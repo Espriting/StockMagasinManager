@@ -27,7 +27,7 @@ public class MagasinStockManagerApplication {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-/*
+
     @Bean
     CommandLineRunner run(UserService us) {
         return args -> {
@@ -37,10 +37,10 @@ public class MagasinStockManagerApplication {
             us.saveRole(new Role(null, "ROLE_SUPER_ADMIN"));
 
             Date date = new SimpleDateFormat("yyyyMMdd").parse("19981105");
-            us.ajouterUser(new User(null, "Travolta", "John", date, "Travolta@outlook.fr", "1234", new ArrayList<>()));
-            us.ajouterUser(new User(null, "Will", "Smith", date, "Will@live.de", "12345", new ArrayList<>()));
-            us.ajouterUser(new User(null, "Jim", "Carry", date, "Jim@gmail.com", "0123456", new ArrayList<>()));
-            us.ajouterUser(new User(null, "Arnold", "schwarzenegger", date, "Arnold@live.fr", "00000", new ArrayList<>()));
+            us.ajouterUser(new User(null, "Travolta", "John", date, "Travolta@outlook.fr", "1234",null, new ArrayList<>()));
+            us.ajouterUser(new User(null, "Will", "Smith", date, "Will@live.de", "12345",null,new ArrayList<>()));
+            us.ajouterUser(new User(null, "Jim", "Carry", date, "Jim@gmail.com", "0123456",null, new ArrayList<>()));
+            us.ajouterUser(new User(null, "Arnold", "schwarzenegger", date, "Arnold@live.fr", "00000",null, new ArrayList<>()));
 
 
 
@@ -51,6 +51,6 @@ public class MagasinStockManagerApplication {
 
 
         };
-    }*/
+    }
 
 }

@@ -1,5 +1,5 @@
 package tn.magasin.stock.enumeration;
 
 public enum CategorieClient {
-	CLIENT,ADMIN,LIVREUR,Ordinaire;
+	BLOCKED,ACTIVE,NONACTIVE;
 }

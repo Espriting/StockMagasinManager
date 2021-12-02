@@ -1,7 +1,6 @@
 package tn.magasin.stock.entity;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,8 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
+@DynamicUpdate
+@Data
 @Table(name="Stock")
 public class Stock implements Serializable{
 	/**
@@ -34,49 +37,4 @@ public class Stock implements Serializable{
 	@Column(name = "libelleStock")
 	private String libelleStock;
 	
-	
-	
-	
-	public Stock(Long idStock, int qte, int qteMin, String libelleStock) {
-		super();
-		this.idStock = idStock;
-		this.qte = qte;
-		this.qteMin = qteMin;
-		this.libelleStock = libelleStock;
-	}
-	public Stock(int qte, int qteMin, String libelleStock) {
-		super();
-		this.qte = qte;
-		this.qteMin = qteMin;
-		this.libelleStock = libelleStock;
-	}
-	public Stock() {
-		super();
-	}
-	public Long getIdStock() {
-		return idStock;
-	}
-	public void setIdStock(Long idStock) {
-		this.idStock = idStock;
-	}
-	public int getQte() {
-		return qte;
-	}
-	public void setQte(int qte) {
-		this.qte = qte;
-	}
-	public int getQteMin() {
-		return qteMin;
-	}
-	public void setQteMin(int qteMin) {
-		this.qteMin = qteMin;
-	}
-	public String getLibelleStock() {
-		return libelleStock;
-	}
-	public void setLibelleStock(String libelleStock) {
-		this.libelleStock = libelleStock;
-	}
-	
-
 }

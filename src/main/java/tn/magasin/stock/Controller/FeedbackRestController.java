@@ -17,6 +17,7 @@ import tn.magasin.stock.entity.Produit;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/feedback")
 public class FeedbackRestController {
 

@@ -60,13 +60,13 @@ public class FactureRestController {
         return factureService.updateFacture(facture);
     }
 
-    @ApiOperation(value = "Récupérer facture par client")
+  /*  @ApiOperation(value = "Récupérer facture par client")
     @GetMapping("/retrieve-facture{user-id}")
     @ResponseBody
 
         public List<Facture> retrieveFactureByClient(@PathVariable("user-id") Long id) {
             return factureService.retrieveFactureByClient(id);
-        }
+        }*/
 
 }
 

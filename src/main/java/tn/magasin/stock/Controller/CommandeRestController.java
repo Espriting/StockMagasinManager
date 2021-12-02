@@ -18,6 +18,7 @@ public class CommandeRestController {
     @Autowired
     ICommandeService commandeService;
 
+
     @GetMapping("/retrieve-all-commanndes")
     @ResponseBody
     @ApiOperation(value = "Récupérer la liste de tous les commandes")
@@ -37,8 +38,8 @@ public class CommandeRestController {
     @GetMapping("/retrieve-commannde-client/{idClient}")
     @ResponseBody
     @ApiOperation(value = "Récupérer commande par Client")
-    public Optional<Commande> getCommandeByClient(@PathVariable Long idClient) {
-        Optional<Commande> commande = commandeService.retrieveCommandeByClient(idClient);
+    public List<Commande> getCommandeByClient(@PathVariable Long idClient) {
+        List<Commande> commande = commandeService.retrieveCommandeByClient(idClient);
         return commande;
     }
     @GetMapping("/retrieve-commannde-facture/{idFacture}")

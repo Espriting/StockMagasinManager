@@ -29,6 +29,7 @@ import javax.persistence.TemporalType;
 @ToString
 @Table(name="Commande")
 public class Commande implements Serializable{
+	@JsonIgnore
 	@ManyToOne( cascade = CascadeType.ALL)
 	private Facture factures;
 	@ManyToOne(cascade = CascadeType.ALL)

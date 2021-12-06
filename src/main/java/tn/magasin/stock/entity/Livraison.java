@@ -7,18 +7,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 @Entity
 @Getter
 @Setter
@@ -30,9 +20,8 @@ public class Livraison  implements Serializable{
 	@ManyToOne(cascade = CascadeType.ALL )
 	@JsonIgnore
 	private User user;
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL ,  mappedBy = "livraison")
-	private Set<Commande> commandes;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Commande commande;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idLivraison")
@@ -43,23 +32,15 @@ public class Livraison  implements Serializable{
 	private Boolean etat;
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	public Livraison(User user, Set<Commande> commandes, String adressse, Boolean etat, Date date) {
-		this.user = user;
-		this.commandes = commandes;
-		this.adressse = adressse;
-		this.etat = etat;
-		this.date = date;
-	}
-
-	public Livraison(Set<Commande> commandes, String adressse, Boolean etat, Date date) {
-		this.commandes = commandes;
-		this.adressse = adressse;
-		this.etat = etat;
-		this.date = date;
-	}
-
 	public Livraison(User user, String adressse, Boolean etat, Date date) {
 		this.user = user;
+		this.adressse = adressse;
+		this.etat = etat;
+		this.date = date;
+	}
+
+	public Livraison(String adressse, Boolean etat, Date date) {
+
 		this.adressse = adressse;
 		this.etat = etat;
 		this.date = date;
@@ -72,11 +53,7 @@ public class Livraison  implements Serializable{
 		this.date = date;
 	}
 
-	public Livraison(String adressse, Boolean etat, Date date) {
-		this.adressse = adressse;
-		this.etat = etat;
-		this.date = date;
-	}
+
 
 	public Livraison(Long idLivraison) {
 		this.idLivraison = idLivraison;

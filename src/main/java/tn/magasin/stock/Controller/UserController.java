@@ -12,6 +12,8 @@ import tn.magasin.stock.Service.UserService;
 import tn.magasin.stock.entity.Role;
 import tn.magasin.stock.entity.User;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.MediaType;
 import java.net.URI;
 import java.util.List;
 
@@ -89,6 +91,7 @@ public class UserController {
         return ResponseEntity.ok().body(us.chercherUser());
     }
 
+    @Consumes(MediaType.APPLICATION_JSON)
     @PostMapping("/users/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());

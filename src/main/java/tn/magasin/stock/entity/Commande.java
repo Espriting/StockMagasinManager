@@ -29,11 +29,8 @@ import javax.persistence.TemporalType;
 @ToString
 @Table(name="Commande")
 public class Commande implements Serializable{
-	@JsonIgnore
 	@ManyToOne( cascade = CascadeType.ALL)
 	private Facture factures;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Livraison livraison;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idCommande")
@@ -44,9 +41,8 @@ public class Commande implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 
-	public Commande(Facture factures, Livraison livraison, Date dateCommande) {
+	public Commande(Facture factures, Date dateCommande) {
 		this.factures = factures;
-		this.livraison = livraison;
 		this.dateCommande = dateCommande;
 	}
 
@@ -61,9 +57,4 @@ public class Commande implements Serializable{
 		this.dateCommande = dateCommande;
 	}
 
-	public Commande(Livraison livraison, Long idCommande, Date dateCommande) {
-		this.livraison = livraison;
-		this.idCommande = idCommande;
-		this.dateCommande = dateCommande;
-	}
 }

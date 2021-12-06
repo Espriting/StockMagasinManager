@@ -14,4 +14,5 @@ public interface  IStockService {
     // Boolean deleteStockByObject(User user);
    Stock updateStock(Stock stock);
     Optional<Stock> retrieveStock(Long Id);
+    List<Stock> ExhaustedStock();
 }

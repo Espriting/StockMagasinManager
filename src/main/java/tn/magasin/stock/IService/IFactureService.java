@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import tn.magasin.stock.entity.Facture;
+import tn.magasin.stock.entity.User;
 
 
 public interface IFactureService {
@@ -18,7 +19,7 @@ public interface IFactureService {
 
     Optional<Facture> retrieveFacture(Long Id);
 
- //   List<Facture> retrieveFactureByClient(Long id);
+    List<Facture> retrieveFactureByClient(User user);
 
 
 

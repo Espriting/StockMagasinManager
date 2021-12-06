@@ -31,7 +31,10 @@ public class MagasinStockManagerApplication {
         return new BCryptPasswordEncoder();
     }
 
-    /*@Bean
+
+   /* @Bean
+
+  
     CommandLineRunner run(UserService us) {
         return args -> {
             us.saveRole(new Role(null, "ROLE_USER"));
@@ -56,7 +59,12 @@ public class MagasinStockManagerApplication {
         };
 
 
-    }*/
 
-
+    }
+*/
 }
+
+
+
+
+

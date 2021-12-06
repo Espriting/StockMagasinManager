@@ -26,9 +26,9 @@ public class Facture implements Serializable {
 	/**
 	 * 
 	 */
+	@JsonIgnore
 	@OneToMany(mappedBy = "factures" , cascade = CascadeType.ALL)
 	private Set<Commande> commande;
-	@JsonIgnore
 	@ManyToOne
 	private User user;
 	private static final long serialVersionUID = 1L;

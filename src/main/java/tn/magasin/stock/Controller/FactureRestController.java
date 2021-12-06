@@ -21,6 +21,8 @@ import java.util.Optional;
 public class FactureRestController {
     @Autowired
     IFactureService factureService;
+    @Autowired
+    IUserService userService;
 
 
     @ApiOperation(value = "Récupérer la liste des Factures")
@@ -60,13 +62,13 @@ public class FactureRestController {
         return factureService.updateFacture(facture);
     }
 
-  /*  @ApiOperation(value = "Récupérer facture par client")
-    @GetMapping("/retrieve-facture{user-id}")
+    @ApiOperation(value = "Récupérer facture par client")
+    @GetMapping("/retrieve-facture-ByClient/{user-id}")
     @ResponseBody
-
         public List<Facture> retrieveFactureByClient(@PathVariable("user-id") Long id) {
-            return factureService.retrieveFactureByClient(id);
-        }*/
+        User user = userService.getUserById(id);
+            return factureService.retrieveFactureByClient(user);
+        }
 
 }
 

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.magasin.stock.IService.ILivraisonService;
 import tn.magasin.stock.Repository.LivraisonRepository;
+import tn.magasin.stock.entity.Commande;
 import tn.magasin.stock.entity.Livraison;
+import tn.magasin.stock.entity.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,17 +46,18 @@ public class LivraisonService implements ILivraisonService {
     }
 
     @Override
-    public Optional<Livraison> retrieveLivraisonByLivreur(Long Id) {
-        return livraisonRepository.FindByLivreur(Id);
+    public List<Livraison> retrieveLivraisonByLivreur(User user) {
+        return livraisonRepository.findByUser(user);
     }
 
-    @Override
-    public Optional<Livraison> retrieveLivraisonByEtatCommande(Boolean etat) {
-        return livraisonRepository.FindLivraisonByetatCommande(etat);
-    }
+
 
     @Override
-    public Optional<Livraison> retrieveLivraisonByClient(Long Id) {
+    public List<Livraison> retrieveLivraisonByClient(Long Id) {
         return livraisonRepository.FindLivraisonByClient(Id);
+    }
+    @Override
+    public List<Livraison> retrieveLivraisonByCommande(Commande commande) {
+        return livraisonRepository.findByCommande(commande);
     }
 }

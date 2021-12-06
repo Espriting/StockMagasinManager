@@ -53,4 +53,10 @@ public class StockService  implements IStockService {
     public Optional<Stock> retrieveStock(Long Id) {
         return stockRepository.findById(Id);
     }
+
+    @Override
+    public List<Stock> ExhaustedStock() {
+        return stockRepository.ExhaustedStock();
+    }
+
 }

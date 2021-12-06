@@ -46,9 +46,9 @@ import tn.magasin.stock.enumeration.CategorieProduit;
 
 
 public class Produit implements Serializable{
-	
+
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne( cascade = CascadeType.ALL)
 	@ToString.Exclude private Stock stock;
 	
 	@JsonIgnore

@@ -3,6 +3,7 @@ package tn.magasin.stock.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import tn.magasin.stock.Service.ProduitService;
 import tn.magasin.stock.Service.StockService;
 import tn.magasin.stock.entity.Stock;
 
@@ -13,9 +14,12 @@ import java.util.List;
 public class StockController {
     @Autowired
     public StockService stockService;
+    @Autowired
+    public ProduitService produitService;
 
-    public StockController(StockService stockService) {
+    public StockController(StockService stockService, ProduitService produitService) {
         this.stockService = stockService;
+        this.produitService = produitService;
     }
 
     @GetMapping("/getAllStock")
@@ -24,7 +28,7 @@ public class StockController {
     }
 
     @DeleteMapping("/deleteStock/{id}")
-    public void deletStock(@PathVariable(value="id") long id){
+    public void deleteStock(@PathVariable(value="id") long id){
         stockService.deleteStockById(id);
 
     }
@@ -40,5 +44,22 @@ public class StockController {
     public Stock getStockById(@PathVariable(value="id") long id){
        return stockService.retrieveStock(id).orElse(new Stock());
 
+    }
+    @PostMapping("/addStock")
+    public ResponseEntity<Stock> addStock(@RequestBody Stock stock){
+        if(stock.getProduit()!=null)
+        stock.getProduit().stream().forEach(
+                produit ->{
+                    produit.setStock(stock);
+                    produitService.updateProduct(produit);
+
+                }
+        );
+
+        return new ResponseEntity<>(stockService.addStock(stock),HttpStatus.OK);
+    }
+    @GetMapping("/exhaustStock")
+    public ResponseEntity<List<Stock>> getExhaustStock(){
+        return new ResponseEntity<>(stockService.ExhaustedStock(),HttpStatus.ACCEPTED);
     }
 }

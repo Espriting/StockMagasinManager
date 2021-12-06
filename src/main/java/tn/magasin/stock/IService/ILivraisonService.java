@@ -1,6 +1,8 @@
 package tn.magasin.stock.IService;
 
+import tn.magasin.stock.entity.Commande;
 import tn.magasin.stock.entity.Livraison;
+import tn.magasin.stock.entity.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +13,7 @@ public interface ILivraisonService {
     void deleteLivraisonById(Long Id);
     Livraison updateLivraison(Livraison livraison);
     Optional<Livraison> retrieveLivraison(Long Id);
-    Optional<Livraison> retrieveLivraisonByLivreur(Long Id);
-    Optional<Livraison> retrieveLivraisonByClient(Long Id);
-    Optional<Livraison> retrieveLivraisonByEtatCommande(Boolean etat);
+    List<Livraison> retrieveLivraisonByLivreur(User user);
+    List<Livraison> retrieveLivraisonByClient(Long Id);
+    List<Livraison> retrieveLivraisonByCommande(Commande commande);
 }

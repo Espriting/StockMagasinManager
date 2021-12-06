@@ -64,11 +64,14 @@ public class CommandeRestController {
         commandeService.deleteCommandeById(idCommande);
     }
 
-    @PutMapping("/modify-Commande")
+    @PutMapping("/modify-Commande/{idCommande}")
     @ResponseBody
     @ApiOperation(value = "Modifier Commande")
-    public Commande modifyCommande(@RequestBody Commande commande) {
-        return commandeService.updateCommande(  commande);
+    public Commande modifyCommande(@PathVariable Long idCommande) {
+        Optional<Commande> commande = commandeService.retrieveCommande(idCommande);
+        Boolean etat = commande.get().getEtat();
+        commande.get().setEtat(!etat);
+        return commandeService.updateCommande(commande.get());
     }
 }
 

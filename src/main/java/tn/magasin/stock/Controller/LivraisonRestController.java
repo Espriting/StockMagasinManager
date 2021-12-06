@@ -4,9 +4,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.magasin.stock.IService.ICommandeService;
 import tn.magasin.stock.IService.ILivraisonService;
+import tn.magasin.stock.IService.IUserService;
 import tn.magasin.stock.entity.Commande;
 import tn.magasin.stock.entity.Livraison;
+import tn.magasin.stock.entity.User;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,6 +21,12 @@ import java.util.Optional;
 public class LivraisonRestController {
     @Autowired
     ILivraisonService livraisonService;
+
+    @Autowired
+    ICommandeService commandeService;
+
+    @Autowired
+    IUserService userService;
 
     @GetMapping("/retrieve-all-Livraisons")
     @ResponseBody
@@ -35,27 +44,12 @@ public class LivraisonRestController {
         return livraison;
     }
 
-    @GetMapping("/retrieve-Livraison/{idLivreur}")
+    @GetMapping("/retrieve-Livraison-livreur/{idLivreur}")
     @ResponseBody
     @ApiOperation(value = "Récupérer livraions  par Livreur")
-    public Optional<Livraison> getLivraisonByLivreur(@PathVariable Long idLivreur) {
-        Optional<Livraison> livraison = livraisonService.retrieveLivraisonByLivreur(idLivreur);
-        return livraison;
-    }
-
-    @GetMapping("/retrieve-Livraison/{idClient}")
-    @ResponseBody
-    @ApiOperation(value = "Récupérer livraions  par Client")
-    public Optional<Livraison> getLivraisonByClient(@PathVariable Long idClient) {
-        Optional<Livraison> livraison = livraisonService.retrieveLivraisonByClient(idClient);
-        return livraison;
-    }
-
-    @GetMapping("/retrieve-Livraison/{idCommand}")
-    @ResponseBody
-    @ApiOperation(value = "Récupérer livraions  par Etat Command")
-    public Optional<Livraison> getLivraisonByEtatCommande(@PathVariable Boolean etat) {
-        Optional<Livraison> livraison = livraisonService.retrieveLivraisonByEtatCommande(etat);
+    public List<Livraison> getLivraisonByLivreur(@PathVariable("idLivreur") Long idLivreur) {
+        User user =  userService.getUserById(idLivreur);
+        List<Livraison> livraison = livraisonService.retrieveLivraisonByLivreur(user);
         return livraison;
     }
 
@@ -77,6 +71,23 @@ public class LivraisonRestController {
     @ApiOperation(value = "Modifier Livraison")
     public Livraison modifyCommaLivraison(@RequestBody Livraison livraison) {
         return livraisonService.updateLivraison(livraison);
+    }
+
+    @GetMapping("/retrieve-Livraison-client/{idClient}")
+    @ResponseBody
+    @ApiOperation(value = "Récupérer livraions  par Client")
+    public List<Livraison> getLivraisonByClient(@PathVariable Long idClient) {
+        return livraisonService.retrieveLivraisonByClient(idClient);
+
+    }
+
+    @GetMapping("/retrieve-Livraison-commande/{idCommand}")
+    @ResponseBody
+    @ApiOperation(value = "Récupérer livraions  par Command")
+    public List<Livraison> getLivraisonByCommande(@PathVariable("idCommand") Long idCommand) {
+        Optional<Commande> commande = commandeService.retrieveCommande(idCommand);
+        return livraisonService.retrieveLivraisonByCommande(commande.get());
+
     }
 
 }

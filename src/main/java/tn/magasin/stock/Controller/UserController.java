@@ -58,11 +58,10 @@ public class UserController {
         return us.getUserByEmail(email);
     }
 
-    @PostMapping("/updateUser/{id}")
+    @PostMapping("/updateUser")
     @ApiOperation(value = "Update User ")
-    public String UpdateUser(@RequestBody User User, @PathVariable long id) {
-        us.updateUser(User, id);
-        return "User updated successfuly Don !!";
+    public User UpdateUser(@RequestBody User User) {
+        return us.updateUser(User);
     }
 
     @GetMapping("/DeleteAllUsers")

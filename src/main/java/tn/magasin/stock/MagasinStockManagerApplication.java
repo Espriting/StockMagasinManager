@@ -32,7 +32,7 @@ public class MagasinStockManagerApplication {
     }
 
 
-   /* @Bean
+   /*@Bean
 
   
 
@@ -61,8 +61,8 @@ public class MagasinStockManagerApplication {
 
 
 
-    }
-*/
+    }*/
+
 }
 
 

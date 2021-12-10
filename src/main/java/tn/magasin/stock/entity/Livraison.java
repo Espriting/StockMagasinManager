@@ -18,7 +18,6 @@ import javax.persistence.*;
 @Table(name="Livraison")
 public class Livraison  implements Serializable{
 	@ManyToOne(cascade = CascadeType.ALL )
-	@JsonIgnore
 	private User user;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Commande commande;

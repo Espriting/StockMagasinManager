@@ -52,7 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/StockMagasinManager/swagger-ui/**").permitAll();
 
         http.authorizeRequests().antMatchers(GET, "/api/user/users");
-        // http.authorizeRequests().antMatchers(POST, "/api/user/users");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

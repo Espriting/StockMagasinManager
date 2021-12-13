@@ -1,5 +1,6 @@
 package tn.magasin.stock.Controller;
 
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -47,14 +48,6 @@ public class StockController {
     }
     @PostMapping("/addStock")
     public ResponseEntity<Stock> addStock(@RequestBody Stock stock){
-        if(stock.getProduit()!=null)
-        stock.getProduit().stream().forEach(
-                produit ->{
-                    produit.setStock(stock);
-                    produitService.updateProduct(produit);
-
-                }
-        );
 
         return new ResponseEntity<>(stockService.addStock(stock),HttpStatus.OK);
     }

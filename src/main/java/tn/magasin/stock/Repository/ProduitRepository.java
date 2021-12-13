@@ -44,4 +44,11 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
 			+ "AND f.reaction='Like' GROUP BY f.produit_id_produit ORDER BY nbrLikes DESC LIMIT 3 " , nativeQuery = true)
 	List MostLikedProducts();
 	
+	
+	@Query(value = "SELECT id_produit from produit p where p.date_creation BETWEEN DATE(NOW()) - INTERVAL '7' DAY AND DATE(NOW())", nativeQuery = true)
+	List NewestProducts();
+	
+	@Query(value = "SELECT count(*) from produit", nativeQuery = true)
+	long CountProducts();
+	
 }

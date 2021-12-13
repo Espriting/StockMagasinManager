@@ -71,6 +71,10 @@ public class Produit implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
 	@ToString.Exclude private Set<Feedback> feedback; 
 	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "produit")
+	@ToString.Exclude private List<Favoris> favoris; 
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

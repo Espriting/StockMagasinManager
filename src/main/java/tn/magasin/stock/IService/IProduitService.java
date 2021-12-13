@@ -25,5 +25,9 @@ public interface IProduitService {
 
 	List MostLikedProduct();
 	//List<Produit>retriveByDate();
+	
+	List NewestProducts();
+	
+	long CountProducts();
 
 }

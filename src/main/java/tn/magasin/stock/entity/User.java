@@ -13,6 +13,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import tn.magasin.stock.enumeration.CategorieClient;
 
 
@@ -46,6 +49,10 @@ public class User implements Serializable {
 	private CategorieClient categorie;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<Role> roles = new ArrayList<>();
+	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+	private Set<Favoris> favoris;
 
 	public User(Long id) {
 		this.id = id;

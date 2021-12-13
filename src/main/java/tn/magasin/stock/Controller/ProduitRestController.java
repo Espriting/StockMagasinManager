@@ -82,4 +82,14 @@ public class ProduitRestController {
 		return ps.MostLikedProduct();
 	}
 	
+	
+	@GetMapping("newestProducts")
+	public List NewestProducts() {
+		return ps.NewestProducts();
+	}
+	
+	@GetMapping("countProducts")
+	public long CountProducts() {
+		return ps.CountProducts();
+	}
 }

@@ -89,6 +89,16 @@ public class ProduitService implements IProduitService{
 	public List MostLikedProduct() {
 		return produitRepository.MostLikedProducts();
 	}
+
+	@Override
+	public List NewestProducts() {
+		return produitRepository.NewestProducts();
+	}
+
+	@Override
+	public long CountProducts() {
+		return produitRepository.CountProducts();
+	}
 	
 	
     

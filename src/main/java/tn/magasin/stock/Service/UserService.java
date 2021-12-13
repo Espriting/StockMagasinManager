@@ -129,6 +129,11 @@ public class UserService implements IUserService, UserDetailsService {
     }
 
     @Override
+    public User findByNom(String nom) {
+        return  userRepository.findByNom(nom);
+    }
+
+    @Override
     public User getUserById(Long id) {
         return userRepository.getUserById(id);
     }

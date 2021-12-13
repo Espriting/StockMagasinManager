@@ -114,6 +114,12 @@ public class UserController {
     public User getUserById(@PathVariable(value = "id") Long id) {
         return us.getUserById(id);
     }
+
+    @GetMapping("/getUserByNom/{nom}")
+    @ApiOperation(value = "Get User By nom ")
+    public User getUserByNom(@PathVariable(value = "nom") String nom) {
+        return us.findByNom(nom);
+    }
 }
 
 @Data

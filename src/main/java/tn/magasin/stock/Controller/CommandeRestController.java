@@ -54,7 +54,8 @@ public class CommandeRestController {
 
     @PostMapping("/addCommande")
     @ApiOperation(value = "Ajouter commande")
-    public Commande addCommande(@Valid @RequestBody Commande commande) {
+    public Commande addCommande(@RequestBody Commande commande) {
+
         return commandeService.addCommande(commande);
     }
 

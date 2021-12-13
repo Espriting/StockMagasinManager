@@ -60,4 +60,11 @@ public class LivraisonService implements ILivraisonService {
     public List<Livraison> retrieveLivraisonByCommande(Commande commande) {
         return livraisonRepository.findByCommande(commande);
     }
+
+
+    @Override
+    public List<Livraison> retrieveLivraisonByEtat(Boolean etat) {
+        return livraisonRepository.findByEtat(etat);
+    }
+
 }

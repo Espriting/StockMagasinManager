@@ -15,7 +15,7 @@ public interface IUserService {
     Boolean getClientByEmailAndPassword(String email,String Password);
     User getUserByEmail(String email);
     User doLogin(String email,String Password);
-    void  updateUser(User user, long id );
+    User  updateUser(User user );
     Role saveRole(Role role);
     void addRoleToUser(String nom,String roleName);
 

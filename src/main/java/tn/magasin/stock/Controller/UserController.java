@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tn.magasin.stock.Service.UserService;
@@ -59,11 +58,10 @@ public class UserController {
         return us.getUserByEmail(email);
     }
 
-    @PostMapping("/updateUser/{id}")
+    @PostMapping("/updateUser")
     @ApiOperation(value = "Update User ")
-    public String UpdateUser(@RequestBody User User, @PathVariable long id) {
-        us.updateUser(User, id);
-        return "User updated successfuly Don !!";
+    public User UpdateUser(@RequestBody User User) {
+        return us.updateUser(User);
     }
 
     @GetMapping("/DeleteAllUsers")

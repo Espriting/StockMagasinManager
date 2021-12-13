@@ -99,17 +99,17 @@ public class UserService implements IUserService, UserDetailsService {
     }
 
     @Override
-    public void updateUser(User user, long id) {
-        User cl = userRepository.findById(id).get();
+    public User updateUser(User user) {
+       // User cl = userRepository.findById(id).get();
+//
+//        if (user.getDateNaissance() != null) cl.setDateNaissance(user.getDateNaissance());
+//
+//        if (user.getPassword() != null) cl.setPassword(user.getPassword());
+//
+//        if (user.getEmail() != null) cl.setEmail(user.getEmail());
+//
 
-        if (user.getDateNaissance() != null) cl.setDateNaissance(user.getDateNaissance());
-
-        if (user.getPassword() != null) cl.setPassword(user.getPassword());
-
-        if (user.getEmail() != null) cl.setEmail(user.getEmail());
-
-
-        userRepository.save(cl);
+       return userRepository.save(user);
     }
 
     @Override

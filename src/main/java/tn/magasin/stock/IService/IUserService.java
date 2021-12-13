@@ -18,7 +18,7 @@ public interface IUserService {
     User  updateUser(User user );
     Role saveRole(Role role);
     void addRoleToUser(String nom,String roleName);
-
+    User findByNom(String nom);
 
     User getUserById(Long id);
 }

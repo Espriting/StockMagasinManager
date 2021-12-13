@@ -18,6 +18,7 @@ import java.util.Optional;
 @RestController
 @Api(tags = "Livraison management")
 @RequestMapping("/livraison")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LivraisonRestController {
     @Autowired
     ILivraisonService livraisonService;
@@ -53,9 +54,17 @@ public class LivraisonRestController {
         return livraison;
     }
 
+    @GetMapping("/retrieve-Livraison-etat")
+    @ResponseBody
+    @ApiOperation(value = "Récupérer livraions  par état")
+    public List<Livraison> getLivraisonByEtat() {
+        return livraisonService.retrieveLivraisonByEtat(false);
+    }
+
+
     @PostMapping("/addLivraison")
     @ApiOperation(value = "Ajouter Livraison")
-    public Livraison addLivraison(@Valid @RequestBody Livraison livraison) {
+    public Livraison addLivraison(@RequestBody Livraison livraison) {
         return livraisonService.addLivraison(livraison);
     }
 

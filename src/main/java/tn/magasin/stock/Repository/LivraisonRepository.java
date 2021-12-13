@@ -19,4 +19,5 @@ public interface LivraisonRepository extends JpaRepository<Livraison, Long> {
   /*  @Query(value = "SELECT * FROM livraison L, commande C where L.id_livraison = C.livraison_id_livraison and  C.etat := b" , nativeQuery = true)
     Optional<Livraison> FindLivraisonByetatCommande(@Param("b") Boolean b);*/
     List<Livraison> findByCommande(Commande commande);
+    List<Livraison> findByEtat(boolean etat);
 }

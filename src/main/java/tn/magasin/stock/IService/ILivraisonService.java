@@ -15,5 +15,6 @@ public interface ILivraisonService {
     Optional<Livraison> retrieveLivraison(Long Id);
     List<Livraison> retrieveLivraisonByLivreur(User user);
     List<Livraison> retrieveLivraisonByClient(Long Id);
+    List<Livraison> retrieveLivraisonByEtat(Boolean etat);
     List<Livraison> retrieveLivraisonByCommande(Commande commande);
 }

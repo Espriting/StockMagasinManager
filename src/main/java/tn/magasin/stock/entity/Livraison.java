@@ -17,10 +17,9 @@ import javax.persistence.*;
 @ToString
 @Table(name="Livraison")
 public class Livraison  implements Serializable{
-	@ManyToOne(cascade = CascadeType.ALL )
-	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.MERGE )
 	private User user;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Commande commande;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

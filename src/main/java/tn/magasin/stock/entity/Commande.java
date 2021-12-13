@@ -29,7 +29,7 @@ import javax.persistence.TemporalType;
 @ToString
 @Table(name="Commande")
 public class Commande implements Serializable{
-	@ManyToOne( cascade = CascadeType.ALL)
+	@ManyToOne( cascade = CascadeType.MERGE)
 	private Facture factures;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

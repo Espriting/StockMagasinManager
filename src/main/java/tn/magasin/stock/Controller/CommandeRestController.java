@@ -14,6 +14,7 @@ import java.util.Optional;
 @RestController
 @Api(tags = "Commande management")
 @RequestMapping("/commande")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CommandeRestController {
     @Autowired
     ICommandeService commandeService;
@@ -53,7 +54,8 @@ public class CommandeRestController {
 
     @PostMapping("/addCommande")
     @ApiOperation(value = "Ajouter commande")
-    public Commande addCommande(@Valid @RequestBody Commande commande) {
+    public Commande addCommande(@RequestBody Commande commande) {
+
         return commandeService.addCommande(commande);
     }
 
@@ -64,14 +66,11 @@ public class CommandeRestController {
         commandeService.deleteCommandeById(idCommande);
     }
 
-    @PutMapping("/modify-Commande/{idCommande}")
+    @PutMapping("/modify-Commande")
     @ResponseBody
     @ApiOperation(value = "Modifier Commande")
-    public Commande modifyCommande(@PathVariable Long idCommande) {
-        Optional<Commande> commande = commandeService.retrieveCommande(idCommande);
-        Boolean etat = commande.get().getEtat();
-        commande.get().setEtat(!etat);
-        return commandeService.updateCommande(commande.get());
+    public Commande modifyCommande(@RequestBody Commande commande) {
+        return commandeService.updateCommande(commande);
     }
 }
 

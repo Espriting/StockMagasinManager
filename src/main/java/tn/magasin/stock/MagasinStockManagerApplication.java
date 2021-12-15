@@ -31,6 +31,7 @@ public class MagasinStockManagerApplication {
         return new BCryptPasswordEncoder();
     }
 
+/*
     @Bean
     CommandLineRunner run(UserService us) {
         return args -> {
@@ -57,5 +58,5 @@ public class MagasinStockManagerApplication {
 
 
     }
-
+*/
 }

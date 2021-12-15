@@ -20,7 +20,7 @@ public class AccompteRestController {
     IAccompteService accompteService;
 
     @ApiOperation(value = "Récupérer la liste des accomptes")
-    @GetMapping("/retrieve-all-accomptes")
+    @GetMapping("/retrieve-all-deposit")
     @ResponseBody
     public List<Accompte> getAccomptes(){
         List<Accompte> listAccomptes = accompteService.retrieveAllAccomptes();

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import tn.magasin.stock.IService.IFactureService;
 import tn.magasin.stock.Repository.FactureRepository;
 import tn.magasin.stock.Repository.UserRepository;
+import tn.magasin.stock.entity.DetailFacture;
 import tn.magasin.stock.entity.Facture;
+import tn.magasin.stock.entity.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,16 +24,33 @@ public class FactureService implements IFactureService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UserService userService;
+    @Autowired
+    DetailFactureService detailFactureService;
 
 
     @Override
     public List<Facture> retrieveALLFactures() {
         return factureRepository.findAll();
     }
-
+// Service Avancé
     @Override
-    public Facture addFacture(Facture facture) {
-        return factureRepository.save(facture);
+    public List<Facture> retrieveALLFacturesByUser(User user) {
+        return factureRepository.findByUser(user);
+    }
+
+// Service Avancé
+    @Override
+    public Facture addFacture(Facture facture,Long id) {
+        facture.setUser(userService.getUserById(id));
+        factureRepository.save(facture);
+        DetailFacture detailFacture=new DetailFacture();
+        detailFacture.setFactures(facture);
+        detailFacture.setMontantRemise(facture.getMontantRemise());
+        detailFacture.setPrixTotal(facture.getMontantFacture()-facture.getMontantRemise());
+        detailFactureService.addDetailFacture(detailFacture);
+        return facture;
     }
 
     @Override
@@ -51,6 +70,13 @@ public class FactureService implements IFactureService {
 
         return factureRepository.findById(idFacture);
     }
+    @Override
+    public Facture addfacture (Facture facture) {
+        return factureRepository.save(facture);
+    }
+
+
+
 
     //Service Avancé
    /* @Override

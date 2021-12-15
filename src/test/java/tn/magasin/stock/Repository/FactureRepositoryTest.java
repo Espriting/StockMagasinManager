@@ -27,12 +27,12 @@ public class FactureRepositoryTest {
 	@Autowired
 	FactureService fs;
 	private static final Logger l = LogManager.getLogger(FactureRepositoryTest.class);
-	@Test
-	public void testRetrieveFacture() {
-	Optional<Facture> facture = fs.retrieveFacture(1L);
-	l.info("retrieve : "+ facture.get().getMontantFacture());
-	}
-	@Test
+//	@Test
+	//public void testRetrieveFacture() {
+//	Optional<Facture> facture = fs.retrieveFacture(1L);
+	//l.info("retrieve : "+ facture.get().getMontantFacture());
+	//}
+//	@Test
 	public void testAddFacture() throws ParseException {
 
 		/*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

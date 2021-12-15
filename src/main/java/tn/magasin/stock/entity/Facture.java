@@ -1,6 +1,6 @@
 package tn.magasin.stock.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -21,35 +21,31 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Data
 @Entity
-@Table(name="Facture")
 public class Facture implements Serializable {
 	/**
-	 * 
+	 *
 	 */
-	@OneToMany(mappedBy = "factures" , cascade = CascadeType.ALL)
-	private Set<Commande> commande;
-	@JsonIgnore
-	@ManyToOne
-	private User user;
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idFacture")
 	private Long idFacture;
-	@Column(name="montantRemise")
-	private float montantRemise;
-	@Column(name="montantFacture")
-	private float montantFacture;
-	@Column(name="dateFacture")
+	private boolean active ;
 	@Temporal(TemporalType.DATE)
 	private Date dateFacture;
-	@Column(name="active")
-	private boolean active ;
+	private float montantFacture;
+	private float montantRemise;
+
+
 
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "factures")
+	@JsonIgnore
 	private Set<DetailFacture> detailFactures;
+	@OneToMany(mappedBy = "factures" , cascade = CascadeType.ALL)
+	private Set<Commande> commande;
+	@ManyToOne
+	private User user;
 
 
-	
 
 }

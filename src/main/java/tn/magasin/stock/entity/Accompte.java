@@ -16,18 +16,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Accompte")
 public class Accompte implements Serializable{
-
-	@OneToOne
-	private Facture facture;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long idAccompte;
-	@Column(name = "avance")
-	private float avance;
-	@Column(name = "montant")
-	private float montant;
-	@Column(name = "nbrmois")
-	private Integer nbrmois;
+	@Column(name = "advance")
+	private double advance;
+	@Column(name = "price")
+	private double price;
+	@Column(name = "norms")
+	private Integer norms;
+	@Column(name = "nom")
+	private String nom;
 
 }
